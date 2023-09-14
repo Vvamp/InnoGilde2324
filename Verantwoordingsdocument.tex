@@ -16,6 +16,7 @@
 \usepackage{xcolor}
 \usepackage{nameref}
 \usepackage{tcolorbox}
+\usepackage{textcomp}
 
 % Styling
 \pagestyle{fancy}
@@ -82,13 +83,16 @@
   \end{tcolorbox}
 }
 \newcommand{\teamchoice}[1]{
-  \subsection[ #1 ]{#1~\mbox{\teambox}}
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\teambox}}}
 }
 
 \newcommand{\personalchoice}[1]{
-  \subsection[ #1 ]{#1~\mbox{\personalbox}}
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\personalbox}}}
 }
 
+\newcommand{\timestamp}[1]{
+  \mbox{\scriptsize \textbf{Datum:} #1} \smallbreak
+}
 
 % Document
 \begin{document}
@@ -113,8 +117,8 @@
 
         \includegraphics[width=0.6\textwidth]{Images/logouni.png}
 
-        HU University of Applied Sciences\\
-        The Netherlands\\
+        Hogeschool Utrecht\\
+        Utrecht\\
         \today
     \end{center}
 \end{titlepage}
@@ -132,21 +136,38 @@
         \hline
         1.0    & 2023-09-10 & Eerste Versie \\
         \hline
+        1.1    & 2023-09-14 & Introductie en projectbeschrijving toegevoegd \\
+        \hline
     \end{tabular}
     \caption{Versiebeheer}
 \end{table}
 
 
+\chapter{Introductie}
+Dit document heeft als doel het beschrijven en beredeneren van belangrijke gemaakte keuzes binnen het Innovation project. 
+Hiermee kunnen stakeholders, toekomstige teams en projectleiders eenvoudig zien welke keuzes zijn gemaakt en waarom deze zijn gemaakt.
+Daarmee hopen wij meer inzicht te bieden in het verloop van het project en waarom dingen zijn zoals deze zijn.
+
+
 \chapter{Projectbeschrijving}
+Vanuit de Hogeschool Utrecht heeft ons team de opdracht gekregen om verder te werken aan een port van SailfishOS voor de Fairphone 4.
+SailfishOS is een open-source besturingssysteem gemaakt door een bedrijf, Jolla, uit Finland. Standaard ondersteund SailfishOS geen Fairphone 4.
+Vorig jaar heeft een ander team al een minimale port werkend gekregen, namelijk de basis functies van een operating system. Er missen daarentegen nog een aantal belangrijke functies.
+\par \smallskip
+Ons hoofddoel is het toevoegen van ondersteuning van android applicaties, zonder afhankelijk te zijn van Google en haar Google Play Services\texttrademark. 
+Daarnaast gaan we ondersteuning toevoegen voor 4G, door Sailfish OS te updaten.
+
 
 \chapter{Gemaakte Keuzes}
-\section{Persoonlijke Keuzes}
+% \section{Persoonlijke Keuzes}
 \personalchoice{IDE}
+\timestamp{2023-09-05}
 Voor de IDE heb ik gekozen voor Visual Studio Code. Officieel is het geen IDE, maar het wordt veelal wel gebruikt als een IDE. 
 Door de vele extensies en aanpasbaarheid, kan deze editor volledig naar wens ingesteld worden. 
 Het is een volledig persoonlijke keuze, maar iedereen in ons team heeft ook gekozen voor visual studio code.
 
 \personalchoice{Laptop OS}
+\timestamp{2023-09-05}
 Om aan Sailfish OS te kunnen werken in een ontwikkelomgeving moet er een keuze gemaakt worden op welk besturingssysteem de ontwikkelomgeving gaat draaien. We hebben voor het ontwikkelen van de SailfishOS is volgens de handleiding een 64-bit Linux kernel nodig.  
 De mogelijkheden voor dit project zijn keuzes uit verschillende 64-bit Linux distributies: 
 \begin{enumerate}
@@ -162,6 +183,7 @@ De OS verschilt in de basis niet veel van Ubuntu en is ook volledig bruikbaar vo
 Hoewel dit een afwijkende keuze is van de rest van mijn team, vond iedereen het goed dat ik gebruik maakte van Arch Linux.
 
 \personalchoice{Opzetten ontwikkelsysteem}
+\timestamp{2023-09-05}
 Voor het opzetten van de ontwikkelomgeving moest er een keuze gemaakt worden op welke manier Linux geïnstalleerd wordt op de laptop. 
 De opties waren als volgt.
 \begin{enumerate}
@@ -174,8 +196,9 @@ De opties waren als volgt.
 Ik heb gekozen om het simpelweg native te runnen, omdat ik het al volledig native runde.
  Daarnaast heb je op deze manier de meeste opslag vrij en werkt het het snelst, doordat er geen vertaallagen tussen zitten.
 
-\section{Team Keuzes}
+% \section{Team Keuzes}
 \teamchoice{Programmeertaal}
+\timestamp{2023-09-05}
 Bij het programmeren van Sailfish OS en het configureren ervan, zal gebruikt gemaakt moeten worden van code. De taal waarin geprogrammeerd gaat worden zal C/C++ zijn. Met een gedeelte bash bij de opstartscripts van Sailfish OS.  
 
 
