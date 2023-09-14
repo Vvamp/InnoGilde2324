@@ -82,11 +82,11 @@
   \end{tcolorbox}
 }
 \newcommand{\teamchoice}[1]{
-  \section[ #1 ]{#1~\mbox{\teambox}}
+  \subsection[ #1 ]{#1~\mbox{\teambox}}
 }
 
 \newcommand{\personalchoice}[1]{
-  \section[ #1 ]{#1~\mbox{\personalbox}}
+  \subsection[ #1 ]{#1~\mbox{\personalbox}}
 }
 
 
@@ -140,10 +140,43 @@
 \chapter{Projectbeschrijving}
 
 \chapter{Gemaakte Keuzes}
+\section{Persoonlijke Keuzes}
 \personalchoice{IDE}
-This is discussed in \cite{Smith2021}.
+Voor de IDE heb ik gekozen voor Visual Studio Code. Officieel is het geen IDE, maar het wordt veelal wel gebruikt als een IDE. 
+Door de vele extensies en aanpasbaarheid, kan deze editor volledig naar wens ingesteld worden. 
+Het is een volledig persoonlijke keuze, maar iedereen in ons team heeft ook gekozen voor visual studio code.
 
 \personalchoice{Laptop OS}
+Om aan Sailfish OS te kunnen werken in een ontwikkelomgeving moet er een keuze gemaakt worden op welk besturingssysteem de ontwikkelomgeving gaat draaien. We hebben voor het ontwikkelen van de SailfishOS is volgens de handleiding een 64-bit Linux kernel nodig.  
+De mogelijkheden voor dit project zijn keuzes uit verschillende 64-bit Linux distributies: 
+\begin{enumerate}
+  \item Manjaro 
+  \item Arch Linux
+  \item Ubuntu
+  \item Kali Linux
+\end{enumerate}
+
+Ik heb gekozen om Arch Linux te gebruiken. 
+Ik heb hiervoor gekozen, omdat ik al meer dan 5 jaar ervaring heb met Arch Linux. 
+De OS verschilt in de basis niet veel van Ubuntu en is ook volledig bruikbaar voor dit project.
+Hoewel dit een afwijkende keuze is van de rest van mijn team, vond iedereen het goed dat ik gebruik maakte van Arch Linux.
+
+\personalchoice{Opzetten ontwikkelsysteem}
+Voor het opzetten van de ontwikkelomgeving moest er een keuze gemaakt worden op welke manier Linux geïnstalleerd wordt op de laptop. 
+De opties waren als volgt.
+\begin{enumerate}
+  \item Docker
+  \item VM 
+  \item Dual boot
+  \item Native
+\end{enumerate}
+
+Ik heb gekozen om het simpelweg native te runnen, omdat ik het al volledig native runde.
+ Daarnaast heb je op deze manier de meeste opslag vrij en werkt het het snelst, doordat er geen vertaallagen tussen zitten.
+
+\section{Team Keuzes}
+\teamchoice{Programmeertaal}
+Bij het programmeren van Sailfish OS en het configureren ervan, zal gebruikt gemaakt moeten worden van code. De taal waarin geprogrammeerd gaat worden zal C/C++ zijn. Met een gedeelte bash bij de opstartscripts van Sailfish OS.  
 
 
 \chapter{Bibliografie}
