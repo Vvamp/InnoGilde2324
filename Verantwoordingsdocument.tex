@@ -2,7 +2,7 @@
 %!TEX encoding = UTF-8 Unicode
 \documentclass[a4paper]{report}
 %\usepackage[date=short,backend=biber]{apa}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{apacite}
 \usepackage[dutch]{babel}
 \usepackage[a4paper, left=1in, right=1in, top=1in, bottom=.8in]{geometry}
@@ -17,6 +17,7 @@
 \usepackage{nameref}
 \usepackage{tcolorbox}
 \usepackage{textcomp}
+\usepackage{helvet}
 
 % Styling
 \pagestyle{fancy}
@@ -100,28 +101,35 @@
 
 % Title Page
 \begin{titlepage}
-    \begin{center}
-        \vspace*{1cm}
-        \Huge
-        \textbf{Verantwoordingsdocument}\\
-        \vspace{0.5cm}\Large
-        TI Gilde / Project Fairphone
+  \begin{center}
+      \vspace*{.9cm}
+      \Huge
+      \textbf{ Verantwoordingsdocument }\\
+      \vspace{0.2cm}
+      \small Team FairPhone
 
-        \normalsize
+      \normalsize
 
-        \vspace{0.5cm}
-        \textbf{Vincent van Setten - 1734729}
-        \vfill
 
-        \vspace{0.8cm}
+      \vspace{2cm}
+      \includegraphics[width=0.7\textwidth]{Images/fairphone.png}
+      \vspace{2cm}
+      \Large\\
+      \textbf{In opdracht van}\\
+      \large
+      \textbf{Hogeschool Utrecht} \\
+      \includegraphics[width=0.2\textwidth]{Images/logouni.png}
 
-        \includegraphics[width=0.6\textwidth]{Images/logouni.png}
 
-        Hogeschool Utrecht\\
-        Utrecht\\
-        \today
+      \vfill
     \end{center}
+      \textbf{Student:} Vincent van Setten - 1734729 \\
+      \textbf{Gilde:} TI Gilde, Groep D\\
+      \textbf{Innovation Team:} Project FairPhone (499) \\
+      \textbf{Datum:} \today \\
+      \vspace{2cm}
 \end{titlepage}
+
 
 
 % ToC
@@ -132,11 +140,13 @@
     \centering
     \begin{tabular}{|c|c|c|p{5cm}|}
         \hline
-        Versie & Datum      & Changes Made  \\
+        \textbf{Versie} & \textbf{Datum} & \textbf{Veranderingen}  \\
         \hline
-        1.0    & 2023-09-10 & Eerste Versie \\
+        1.2    & 2023-09-22 & Hoofdstuk docker toegevoegd en keuzes uitgebreid \\
         \hline
         1.1    & 2023-09-14 & Introductie en timestamps toegevoegd\\
+        \hline
+        1.0    & 2023-09-10 & Eerste Versie \\
         \hline
     \end{tabular}
     \caption{Versiebeheer}
@@ -147,26 +157,43 @@
 Dit document heeft als doel het beschrijven en beredeneren van belangrijke gemaakte keuzes binnen het Innovation project. 
 Hiermee kunnen stakeholders, toekomstige teams en projectleiders eenvoudig zien welke keuzes zijn gemaakt en waarom deze zijn gemaakt.
 Daarmee hopen wij meer inzicht te bieden in het verloop van het project en waarom dingen zijn zoals deze zijn.
+\vspace{1.5cm}
 
-
+\begingroup
+\let\clearpage\relax
 \chapter{Projectbeschrijving}
 Vanuit de Hogeschool Utrecht heeft ons team de opdracht gekregen om verder te werken aan een port van SailfishOS voor de Fairphone 4.
 SailfishOS is een open-source besturingssysteem gemaakt door een bedrijf, Jolla, uit Finland. Standaard ondersteund SailfishOS geen Fairphone 4.
 Vorig jaar heeft een ander team al een minimale port werkend gekregen, namelijk de basis functies van een operating system. Er missen daarentegen nog een aantal belangrijke functies.
 \par \smallskip
 Ons hoofddoel is het toevoegen van ondersteuning van android applicaties, zonder afhankelijk te zijn van Google en haar Google Play Services\texttrademark. 
-Daarnaast gaan we ondersteuning toevoegen voor 4G, door Sailfish OS te updaten.
-
+Daarnaast aan we ondersteuning toevoegen voor 4G, door Sailfish OS te updaten.
+\endgroup
 
 \chapter{Gemaakte Keuzes}
 % \section{Persoonlijke Keuzes}
 \personalchoice{IDE}
+\subsubsection{Context}
+\timestamp{2023-09-05}
+Onze code gaan we schrijven met behulp van een IDE. Dit is een vrij arbitraire keuze, maar kan later in het project gevolgen hebben. 
+Zo kan elke IDE zijn eigen methodes hebben voor het gebruik en delen van instellingen en linters. 
+\par\smallskip
+Er zijn een aantal grote IDE's die wij kunnen gebruiken voor dit project. 
+\begin{enumerate}
+  \item Visual Studio - Dit is een grote IDE met een breed scala aan features.
+  \item Visual Studio Code - Dit is officieel geen echte IDE, maar kan helemaal samengesteld worden naar jouw eigen beeld. 
+  \item CodeLite - Dit is een bekend open-source IDE, gemaakt voor meerdere programmeertalen. 
+\end{enumerate}
+
+\subsubsection{Keuze}
 \timestamp{2023-09-05}
 Voor de IDE heb ik gekozen voor Visual Studio Code. Officieel is het geen IDE, maar het wordt veelal wel gebruikt als een IDE. 
 Door de vele extensies en aanpasbaarheid, kan deze editor volledig naar wens ingesteld worden. 
-Het is een volledig persoonlijke keuze, maar iedereen in ons team heeft ook gekozen voor visual studio code.
+Het is een volledig persoonlijke keuze, maar iedereen in ons team heeft ook gekozen voor Visual Studio Code.
+Dit kan in de toekomst werk schelen, doordat onze werkomgeving bij iedereen gelijk is.
 
 \personalchoice{Laptop OS}
+\subsubsection{Context}
 \timestamp{2023-09-05}
 Om aan Sailfish OS te kunnen werken in een ontwikkelomgeving moet er een keuze gemaakt worden op welk besturingssysteem de ontwikkelomgeving gaat draaien. We hebben voor het ontwikkelen van de SailfishOS is volgens de handleiding een 64-bit Linux kernel nodig.  
 De mogelijkheden voor dit project zijn keuzes uit verschillende 64-bit Linux distributies: 
@@ -177,33 +204,112 @@ De mogelijkheden voor dit project zijn keuzes uit verschillende 64-bit Linux dis
   \item Kali Linux
 \end{enumerate}
 
-Ik heb gekozen om Arch Linux te gebruiken. 
+\subsubsection{Keuze}
+\timestamp{2023-09-05}
+Als team hebben we gekozen om Ubuntu te gebruiken als besturingssysteem voor onze laptops. 
+Dit hebben we gedaan om de volgende twee redenen.
+\begin{enumerate}
+  \item Het voorgaande team gebruikte ook Linux en gebruikte dit voor de ontwikkelomgeving.
+  \item De root-omgeving van SailfishOS is gebaseerd op Ubuntu (20.04 LTS).
+\end{enumerate}
+
+Persoonlijk heb ik er voor gekozen om af te wijken van de team keuze. 
+Ik heb er namelijk voor gekozen om Arch Linux te gaan gebruiken als besturingssysteem.
 Ik heb hiervoor gekozen, omdat ik al meer dan 5 jaar ervaring heb met Arch Linux. 
-De OS verschilt in de basis niet veel van Ubuntu en is ook volledig bruikbaar voor dit project.
-Hoewel dit een afwijkende keuze is van de rest van mijn team, vond iedereen het goed dat ik gebruik maakte van Arch Linux.
+Daarnaast verschillen Linux distributies tegenwoordig onder de motorkap niet veel meer van elkaar, naast de package manager en de standaard applicaties waar ze mee geleverd worden.
+\par \smallskip
+Hierom zou er tijdens het project geen problemen moeten ontstaan bij het gebruik van Arch Linux. 
+Indien deze zich wel voordoen, ben ik bereid deze op te lossen in mijn eigen tijd en heb ik er de vertrouwen in dat ik dat ook kan.
+Ik ben van mening dat dit uiteindelijk efficiënter is dan overstappen naar Ubuntu.
+\par \smallskip
+Hoewel dit een afwijkende keuze is van de rest van mijn team, stemde mijn team hier wel mee in.
 
 \personalchoice{Opzetten ontwikkelsysteem}
+\subsubsection{Context}
 \timestamp{2023-09-05}
 Voor het opzetten van de ontwikkelomgeving moest er een keuze gemaakt worden op welke manier Linux geïnstalleerd wordt op de laptop. 
 De opties waren als volgt.
 \begin{enumerate}
-  \item Docker
-  \item VM 
+  \item Virtual Machine (VM)
   \item Dual boot
   \item Native
 \end{enumerate}
 
-Ik heb gekozen om het simpelweg native te runnen, omdat ik het al volledig native runde.
- Daarnaast heb je op deze manier de meeste opslag vrij en werkt het het snelst, doordat er geen vertaallagen tussen zitten.
-
-% \section{Team Keuzes}
-\teamchoice{Programmeertaal}
+\subsubsection{Keuze}
 \timestamp{2023-09-05}
-Bij het programmeren van Sailfish OS en het configureren ervan, zal gebruikt gemaakt moeten worden van code. De taal waarin geprogrammeerd gaat worden zal C/C++ zijn. Met een gedeelte bash bij de opstartscripts van Sailfish OS.  
+Ik heb gekozen om het simpelweg native te runnen, omdat ik het al volledig native runde. 
+ Daarnaast heb je op deze manier de meeste opslag vrij en werkt het het snelst, doordat er geen vertaallagen tussen zitten.
+Ik heb verder ook geen nut voor Windows of een ander besturingssysteem op mijn laptop, waardoor dual boot of een VM niet nodig zal zijn.
+
+\teamchoice{Communicatie}
+\subsubsection{Context}
+\timestamp{2023-09-05}
+Binnen ons projectgroep zullen we veel moeten communiceren. Afspraken moeten gemaakt worden, bestanden moeten gedeeld worden en soms moeten we simpelweg vragen kunnen stellen.
+Normaal zal communicatie eenvoudig zijn als we met elkaar aan tafel zitten, maar er zullen zich ook situaties voordoen waar we niet fysiek kunnen communiceren.
+In dit geval zijn er duidelijke afspraken nodig voor hoe we communiceren.
+\par \smallskip 
+We hebben in totaal drie digitale omgevingen nodig.
+\begin{enumerate}
+  \item Een communicatiekanaal voor contact met de opdrachtgever.
+  \item Een communicatiekanaal voor intern teamcontact.
+  \item Een gedeelde plek voor bestandsopslag.
+\end{enumerate}
+
+Voor communicatie kanalen hebben we de volgende lijst aan populaire opties samengesteld.
+\begin{enumerate}
+  \item Discord 
+  \item Whatsapp 
+  \item Microsoft Teams 
+  \item Slack 
+  \item Telegram 
+\end{enumerate}
+
+Voor de bestandsopslag hebben we twee grote spelers, namelijk Google Drive en OneDrive. 
+Beide zijn goede opties met vergelijkbare features.
+
+\subsubsection{Keuze}
+\timestamp{2023-09-05}
+Voor contact met de opdrachtgever hebben we gekozen voor een Discord server.
+We hebben hiervoor gekozen, omdat de opdrachtgever Discord gebruikt en elk teamlid hier al actief gebruik van maakt.
+\par \smallskip 
+Voor intern teamcontact gebruiken we een Whatsapp groep. Dit vond elk teamlid het fijnst. Hiermee kunnen we snel met elkaar in contact komen en hoeven we geen nieuwe apps te installeren. 
+\par \smallskip
+Voor bestandsopslag gebruiken we OneDrive. Vanuit de Hogeschool Utrecht krijgen we allemaal standaard een OneDrive omgeving.
+Hier hebben we meer dan voldoende opslag voor bestanden. OneDrive integreert ook gemakkelijk met Microsoft Word. 
+
+
+% \teamchoice{Programmeertaal}
+% \subsubsection{Context}
+% \timestamp{2023-09-05}
+% Gedurende het project zullen we veel moeten programmeren. Hiervoor is een breed scala aan mogelijkheden.
+
+% \subsubsection{Keuze}
+% \timestamp{2023-09-05}
+% De taal waarin geprogrammeerd gaat worden zal voornamelijk C/C++ zijn. Met een gedeelte bash bij de opstartscripts van Sailfish OS.  
+% Deze keuze is gemaakt door de oorspronkelijke ontwikkelaars van SailfishOS, LineageOS en de ontwikkelgroep van afgelopen jaar.
+% Wij hebben besloten deze keuze aan te houden, omdat er geen goed concreet voordeel is om de programmeertaal te veranderen. Daarnaast zou dit problemen veroorzaken en veel tijd kosten.
+
+
+\teamchoice{Docker}
+\subsubsection{Context}
+\timestamp{20-09-2023}
+De huidige build environment wordt opgezet aan de hand van een installation guide.
+Daarnaast is er een installatiescript aanwezig.
+Deze zouden moeten werken, maar hebben we tot nu toe nergens gemakkelijk werkend gekregen.
+Tijdens het debuggen gaat het steeds fout op verschillende punten. We denken dat dit komt door overblijvende build files die naar allemaal onbekende plekken in ons systeem worden geschreven.
+
+\subsubsection{Keuze}
+\timestamp{20-09-2023}
+Met oog op overdraagbaarheid denken wij als team dat het een goede keuze is om een Docker environment op te gaan zetten. 
+Hiermee zou de build environment eenvoudig overdraagbaar zijn en zou het gemakkelijk werken op in principe elk systeem, zonder dat er build files overblijven na een compilatie.
+Dit zou ook tijd kunnen gaan schelen tijdens het debuggen. 
+
+
 
 
 \chapter{Bibliografie}
-\nocite{*} % This includes all entries from the .bib file, even if they're not cited in the document
+\textit{Nog te doen...}
+%\nocite{*} % This includes all entries from the .bib file, even if they're not cited in the document
 \begingroup
 \renewcommand{\chapter}[2]{} % Removes the 'Chapter' heading
 \renewcommand{\addcontentsline}[3]{} % Prevents adding this specific entry to TOC
@@ -212,5 +318,6 @@ Bij het programmeren van Sailfish OS en het configureren ervan, zal gebruikt gem
 \endgroup
 
 \chapter{Bijlagen}
+\textit{Ruimte voor peer reviews}
 
 \end{document}
