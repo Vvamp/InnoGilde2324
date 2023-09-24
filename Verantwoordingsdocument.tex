@@ -3,7 +3,7 @@
 \documentclass[a4paper]{report}
 %\usepackage[date=short,backend=biber]{apa}
 \usepackage[hidelinks]{hyperref}
-\usepackage{apacite}
+\usepackage{cite}
 \usepackage[dutch]{babel}
 \usepackage[a4paper, left=1in, right=1in, top=1in, bottom=.8in]{geometry}
 \usepackage[utf8]{inputenc}
@@ -18,6 +18,7 @@
 \usepackage{tcolorbox}
 \usepackage{textcomp}
 \usepackage{helvet}
+\usepackage{enumitem}
 
 % Styling
 \pagestyle{fancy}
@@ -142,6 +143,8 @@
         \hline
         \textbf{Versie} & \textbf{Datum} & \textbf{Veranderingen}  \\
         \hline
+        1.3    & 2023-09-24 & Referenties toegevoegd \\
+        \hline
         1.2    & 2023-09-22 & Hoofdstuk docker toegevoegd en keuzes uitgebreid \\
         \hline
         1.1    & 2023-09-14 & Introductie en timestamps toegevoegd\\
@@ -156,7 +159,7 @@
 \chapter{Introductie}
 Dit document heeft als doel het beschrijven en beredeneren van belangrijke gemaakte keuzes binnen het Innovation project. 
 Hiermee kunnen stakeholders, toekomstige teams en projectleiders eenvoudig zien welke keuzes zijn gemaakt en waarom deze zijn gemaakt.
-Daarmee hopen wij meer inzicht te bieden in het verloop van het project en waarom dingen zijn zoals deze zijn.
+Daarmee hopen wij meer inzicht te bieden in het verloop van het project en waarom voor bepaalde dingen zijn gekozen. 
 \vspace{1.5cm}
 
 \begingroup
@@ -167,7 +170,7 @@ SailfishOS is een open-source besturingssysteem gemaakt door een bedrijf, Jolla,
 Vorig jaar heeft een ander team al een minimale port werkend gekregen, namelijk de basis functies van een operating system. Er missen daarentegen nog een aantal belangrijke functies.
 \par \smallskip
 Ons hoofddoel is het toevoegen van ondersteuning van android applicaties, zonder afhankelijk te zijn van Google en haar Google Play Services\texttrademark. 
-Daarnaast aan we ondersteuning toevoegen voor 4G, door Sailfish OS te updaten.
+Daarnaast gaan we ondersteuning toevoegen voor 4G, door Sailfish OS te updaten.
 \endgroup
 
 \chapter{Gemaakte Keuzes}
@@ -180,10 +183,11 @@ Zo kan elke IDE zijn eigen methodes hebben voor het gebruik en delen van instell
 \par\smallskip
 Er zijn een aantal grote IDE's die wij kunnen gebruiken voor dit project. 
 \begin{enumerate}
-  \item Visual Studio - Dit is een grote IDE met een breed scala aan features.
-  \item Visual Studio Code - Dit is officieel geen echte IDE, maar kan helemaal samengesteld worden naar jouw eigen beeld. 
-  \item CodeLite - Dit is een bekend open-source IDE, gemaakt voor meerdere programmeertalen. 
+  \item \href{https://visualstudio.microsoft.com/}{Visual Studio} - Dit is een grote IDE met een breed scala aan features.
+  \item \href{https://code.visualstudio.com/}{Visual Studio Code} - Dit is officieel geen echte IDE, maar kan helemaal samengesteld worden naar jouw eigen beeld.
+  \item \href{https://codelite.org/}{CodeLite} - Dit is een bekend open-source IDE, gemaakt voor meerdere programmeertalen.
 \end{enumerate}
+
 
 \subsubsection{Keuze}
 \timestamp{2023-09-05}
@@ -195,22 +199,24 @@ Dit kan in de toekomst werk schelen, doordat onze werkomgeving bij iedereen geli
 \personalchoice{Laptop OS}
 \subsubsection{Context}
 \timestamp{2023-09-05}
-Om aan Sailfish OS te kunnen werken in een ontwikkelomgeving moet er een keuze gemaakt worden op welk besturingssysteem de ontwikkelomgeving gaat draaien. We hebben voor het ontwikkelen van de SailfishOS is volgens de handleiding een 64-bit Linux kernel nodig.  
+Om aan Sailfish OS te kunnen werken in een ontwikkelomgeving moet er een keuze gemaakt worden op welk besturingssysteem de ontwikkelomgeving gaat draaien. 
+We hebben voor het ontwikkelen van de SailfishOS is volgens de porting-guide een 64-bit Linux kernel nodig~\cite{sailfishportingguide}.  
 De mogelijkheden voor dit project zijn keuzes uit verschillende 64-bit Linux distributies: 
 \begin{enumerate}
-  \item Manjaro 
-  \item Arch Linux
-  \item Ubuntu
-  \item Kali Linux
+  \item \href{https://manjaro.org/}{Manjaro}
+  \item \href{https://archlinux.org/}{Arch Linux}
+  \item \href{https://ubuntu.com/}{Ubuntu}
+  \item \href{https://www.kali.org/}{Kali Linux}
 \end{enumerate}
+
 
 \subsubsection{Keuze}
 \timestamp{2023-09-05}
 Als team hebben we gekozen om Ubuntu te gebruiken als besturingssysteem voor onze laptops. 
 Dit hebben we gedaan om de volgende twee redenen.
 \begin{enumerate}
-  \item Het voorgaande team gebruikte ook Linux en gebruikte dit voor de ontwikkelomgeving.
-  \item De root-omgeving van SailfishOS is gebaseerd op Ubuntu (20.04 LTS).
+  \item Het voorgaande team gebruikte ook Linux en gebruikte dit voor de ontwikkelomgeving~\cite{fairphonegithub}
+  \item De root-omgeving van SailfishOS is gebaseerd op Ubuntu (20.04 LTS)~\cite{sailfishportingguide}.
 \end{enumerate}
 
 Persoonlijk heb ik er voor gekozen om af te wijken van de team keuze. 
@@ -238,7 +244,7 @@ De opties waren als volgt.
 \subsubsection{Keuze}
 \timestamp{2023-09-05}
 Ik heb gekozen om het simpelweg native te runnen, omdat ik het al volledig native runde. 
- Daarnaast heb je op deze manier de meeste opslag vrij en werkt het het snelst, doordat er geen vertaallagen tussen zitten.
+Daarnaast heb je op deze manier de meeste opslag vrij en werkt het het snelst, doordat er geen vertaallagen tussen zitten.
 Ik heb verder ook geen nut voor Windows of een ander besturingssysteem op mijn laptop, waardoor dual boot of een VM niet nodig zal zijn.
 
 \teamchoice{Communicatie}
@@ -257,11 +263,11 @@ We hebben in totaal drie digitale omgevingen nodig.
 
 Voor communicatie kanalen hebben we de volgende lijst aan populaire opties samengesteld.
 \begin{enumerate}
-  \item Discord 
-  \item Whatsapp 
-  \item Microsoft Teams 
-  \item Slack 
-  \item Telegram 
+  \item \href{https://discord.com/}{Discord}
+  \item \href{https://www.whatsapp.com/}{WhatsApp}
+  \item \href{https://www.microsoft.com/en-us/microsoft-teams/group-chat-software}{Microsoft Teams}
+  \item \href{https://slack.com/}{Slack}
+  \item \href{https://telegram.org/}{Telegram}
 \end{enumerate}
 
 Voor de bestandsopslag hebben we twee grote spelers, namelijk Google Drive en OneDrive. 
@@ -303,21 +309,25 @@ Tijdens het debuggen gaat het steeds fout op verschillende punten. We denken dat
 Met oog op overdraagbaarheid denken wij als team dat het een goede keuze is om een Docker environment op te gaan zetten. 
 Hiermee zou de build environment eenvoudig overdraagbaar zijn en zou het gemakkelijk werken op in principe elk systeem, zonder dat er build files overblijven na een compilatie.
 Dit zou ook tijd kunnen gaan schelen tijdens het debuggen. 
-
+\par\smallskip
+Deze keuze gaat in tegenover een keuze gemaakt door een voorgaand ontwikkelingsteam binnen het Fairphone project. 
+Dit team koos er voor om niet verder te gaan met Docker, omdat dit vrij lastig bleek en er tegen problemen werd gelopen.
+Wij geloven dat het waardevol is om toch hiermee verder te gaan, omdat dit de overdraagbaarheid enorm vergroot. Wij denken dat deze problemen niet overkomelijk zijn.
+Hoewel het ons nu meer tijd zal kosten om dit op te zetten, zal dit een potentieel toekomstig ontwikkelingsteam enorm veel tijd schelen.
 
 
 
 \chapter{Bibliografie}
-\textit{Nog te doen...}
-%\nocite{*} % This includes all entries from the .bib file, even if they're not cited in the document
+% \textit{Nog te doen...}
+% \nocite{*} % This includes all entries from the .bib file, even if they're not cited in the document
 \begingroup
 \renewcommand{\chapter}[2]{} % Removes the 'Chapter' heading
 \renewcommand{\addcontentsline}[3]{} % Prevents adding this specific entry to TOC
-\bibliographystyle{apacite}
+\bibliographystyle{ieeetr}
 \bibliography{bronnen}
 \endgroup
 
-\chapter{Bijlagen}
-\textit{Ruimte voor peer reviews}
+% \chapter{Bijlagen}
+% \textit{Ruimte voor peer reviews}
 
 \end{document}
