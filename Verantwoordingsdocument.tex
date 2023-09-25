@@ -19,6 +19,8 @@
 \usepackage{textcomp}
 \usepackage{helvet}
 \usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{pgf-pie}  
 
 % Styling
 \pagestyle{fancy}
@@ -201,11 +203,12 @@ Dit kan in de toekomst werk schelen, doordat onze werkomgeving bij iedereen geli
 \timestamp{2023-09-05}
 Om aan Sailfish OS te kunnen werken in een ontwikkelomgeving moet er een keuze gemaakt worden op welk besturingssysteem de ontwikkelomgeving gaat draaien. 
 We hebben voor het ontwikkelen van de SailfishOS is volgens de porting-guide een 64-bit Linux kernel nodig~\cite{sailfishportingguide}.  
-De mogelijkheden voor dit project zijn keuzes uit verschillende 64-bit Linux distributies: 
+De mogelijkheden voor dit project zijn keuzes uit verschillende 64-bit Linux distributies. 
+
 \begin{enumerate}
-  \item \href{https://manjaro.org/}{Manjaro}
-  \item \href{https://archlinux.org/}{Arch Linux}
-  \item \href{https://ubuntu.com/}{Ubuntu}
+  \item \href{https://archlinux.org/}{Arch Linux}. - Dit besturingssysteem had ik al op mijn laptop staan
+  \item \href{https://manjaro.org/}{Manjaro} - Manjaro is een Linux distrobutie gebaseerd op Arch Linux. Het wordt geprezen voor simpliciteit en gebruiksvriendelijkheid. 
+  \item \href{https://ubuntu.com/}{Ubuntu} - Ubuntu is gebaseerd op Debian. 
   \item \href{https://www.kali.org/}{Kali Linux}
 \end{enumerate}
 
@@ -220,15 +223,73 @@ Dit hebben we gedaan om de volgende twee redenen.
 \end{enumerate}
 
 Persoonlijk heb ik er voor gekozen om af te wijken van de team keuze. 
-Ik heb er namelijk voor gekozen om Arch Linux te gaan gebruiken als besturingssysteem.
-Ik heb hiervoor gekozen, omdat ik al meer dan 5 jaar ervaring heb met Arch Linux. 
-Daarnaast verschillen Linux distributies tegenwoordig onder de motorkap niet veel meer van elkaar, naast de package manager en de standaard applicaties waar ze mee geleverd worden.
-\par \smallskip
-Hierom zou er tijdens het project geen problemen moeten ontstaan bij het gebruik van Arch Linux. 
-Indien deze zich wel voordoen, ben ik bereid deze op te lossen in mijn eigen tijd en heb ik er de vertrouwen in dat ik dat ook kan.
-Ik ben van mening dat dit uiteindelijk efficiënter is dan overstappen naar Ubuntu.
-\par \smallskip
-Hoewel dit een afwijkende keuze is van de rest van mijn team, stemde mijn team hier wel mee in.
+Ik heb specifieke eisen aan een besturingssysteem. 
+Zo heb ik graag een snel systeem met toegang tot de nieuwste packages, maar is gebruiksvriendelijkheid helemaal geen prioriteit.
+Deze heb ik voor het gemak getoond in het volgende taartdiagram. 
+\begin{figure}
+  \centering
+\begin{tikzpicture}
+
+  \pie{30/Packages,
+  25/Snelheid,
+  25/Minimaliteit,
+  15/Stabiliteit,
+  5/Gebruiksvriendelijkheid}
+  
+\end{tikzpicture}
+\caption{Belang van }
+\label{graph:spec_percentages}
+\end{figure}
+
+Zoals te zien in bovenstaand diagram, vind ik zelf packages het belangrijkst. 
+Wat ik hiermee bedoel is de toegang tot programma's en daarbij ook nieuwe versies van programma's.
+In Linux distributies worden programma's vooral gedownload vanaf package managers. Deze worden 
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|c|}
+    \hline
+    \textbf{Eis} & \textbf{Gewicht} \\
+    \hline
+    Snelheid & 2 \\
+    Nieuwe Packages & 3 \\
+    Gebruiksvriendelijkheid & 1 \\
+    Stabiliteit & 2 \\
+    Minimaliteit & 3 \\
+    \hline
+  \end{tabular}
+  \caption{Gewichten per eis}
+  \label{tab:spec_weights}
+\end{table}
+
+In onderstaande tabel heb ik een lijst gemaakt van een aantal Linux distributies die mij interessant leken.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|c|c|c|c|}
+    \hline
+    \textbf{Besturingssysteem} & \textbf{Snelheid} & \textbf{Nieuwe Packages} & \textbf{Gebruiksvriendelijkheid} & \textbf{Stabiliteit} \\
+    \hline
+    Arch Linux & ++ & ++ & - & + \\
+    \hline
+    Ubuntu & + & - & ++ & ++ \\
+    \hline
+    Linux Mint & + & - & ++ & ++ \\
+    \hline
+    Kali Linux & + & - & ++ & ++ \\
+    \hline
+  \end{tabular}
+  \caption{Ratings for each OS based on specs}
+  \label{tab:os_ratings}
+\end{table}
+
+
+Op basis van deze punten kies ik voor Arch Linux. 
+Arch Linux biedt toegang tot de AUR. Dit is een package repository die wordt onderhouden door de Arch Linux community.
+Dit stelt een breed scala aan packages tot mijn beschikking, waarvan vele direct worden gebouwd vanuit Github.
+Hiermee heb ik toegang tot bijna elk programma dat beschikbaar is op Linux, met daarbij de laatste versie. 
+Daarnaast is Arch Linux snel en erg stabiel wanneer er wordt gekozen voor de LTS kernel. 
+
 
 \personalchoice{Opzetten ontwikkelsysteem}
 \subsubsection{Context}
@@ -236,17 +297,29 @@ Hoewel dit een afwijkende keuze is van de rest van mijn team, stemde mijn team h
 Voor het opzetten van de ontwikkelomgeving moest er een keuze gemaakt worden op welke manier Linux geïnstalleerd wordt op de laptop. 
 De opties waren als volgt.
 \begin{enumerate}
-  \item Virtual Machine (VM)
-  \item Dual boot
-  \item Native
+  \item Linux in een Virtual Machine (VM)
+  \item Dual booten naast Windows
+  \item Native runnen
 \end{enumerate}
+
+Dual booten naast Windows is exact hetzelfde als native qua performance, omdat het direct op de hardware runt. 
+Het enige verschil ten opzichten van native is dat je minder opslag hebt voor de Linux installatie. Dit komt omdat er natuurlijk ook ruimte nodig is voor Windows en de applicaties en documenten op Windows. 
+
+Native is sneller dan virtual machines. Dit komt door de overhead die wordt toegevoegd door de Hypervisor. 
+Hoeveel overhead dit is, hangt sterk af van veel factoren. Dit zijn dingen zoals de cpu, andere systeemonderdelen, de instellingen van de virtual machine, etc. 
+Daarnaast is in de meeste gevallen een deel van de CPU, RAM en schijf nodig voor de host-besturingssysteem.
+Maar, dat native sneller is dan virtual machine wordt aangetoond in een 2014 onderzoek van IBM~\cite{felter2015updated}.
+Hierin wordt de performance van kernel-level virtual machines vergeleken met Docker en native. 
+Hieruit komt dat native sneller is dan zowel Docker als (K)VM's. 
 
 \subsubsection{Keuze}
 \timestamp{2023-09-05}
-Ik heb gekozen om het simpelweg native te runnen, omdat ik het al volledig native runde. 
-Daarnaast heb je op deze manier de meeste opslag vrij en werkt het het snelst, doordat er geen vertaallagen tussen zitten.
-Ik heb verder ook geen nut voor Windows of een ander besturingssysteem op mijn laptop, waardoor dual boot of een VM niet nodig zal zijn.
-
+Ik heb gekozen om het simpelweg native te runnen, omdat dit voor mij de meeste voordelen heeft.
+Hoewel het snelheidsverschil tussen een VM en native niet verschrikkelijk is, voegt een VM wel onnodige overhead toe. 
+Ik had al een native Linux installatie, dus ik had geen reden om over te stappen op een VM. 
+Daarnaast heb ik ook geen Windows nodig, dus is dual booten ook onnodig. 
+\par\smallskip
+Native geeft mij dus het meeste opslag, de snelste 
 \teamchoice{Communicatie}
 \subsubsection{Context}
 \timestamp{2023-09-05}
