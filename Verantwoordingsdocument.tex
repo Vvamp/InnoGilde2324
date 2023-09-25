@@ -21,7 +21,8 @@
 \usepackage{enumitem}
 \usepackage{tabularx}
 \usepackage{pgf-pie}  
-
+\usepackage{float}
+\usepackage{pgfplots}
 % Styling
 \pagestyle{fancy}
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
@@ -145,6 +146,8 @@
         \hline
         \textbf{Versie} & \textbf{Datum} & \textbf{Veranderingen}  \\
         \hline
+        1.4    & 2023-09-25 & Meer details en visuals toegevoegd \\
+        \hline
         1.3    & 2023-09-24 & Referenties toegevoegd \\
         \hline
         1.2    & 2023-09-22 & Hoofdstuk docker toegevoegd en keuzes uitgebreid \\
@@ -183,7 +186,7 @@ Daarnaast gaan we ondersteuning toevoegen voor 4G, door Sailfish OS te updaten.
 Onze code gaan we schrijven met behulp van een IDE. Dit is een vrij arbitraire keuze, maar kan later in het project gevolgen hebben. 
 Zo kan elke IDE zijn eigen methodes hebben voor het gebruik en delen van instellingen en linters. 
 \par\smallskip
-Er zijn een aantal grote IDE's die wij kunnen gebruiken voor dit project. 
+Er zijn een aantal grote IDE's die wij kunnen gebruiken voor dit project, welke wij hebben gekozen omdat we hier al eerder mee hebben gewerkt binnen de opleiding.
 \begin{enumerate}
   \item \href{https://visualstudio.microsoft.com/}{Visual Studio} - Dit is een grote IDE met een breed scala aan features.
   \item \href{https://code.visualstudio.com/}{Visual Studio Code} - Dit is officieel geen echte IDE, maar kan helemaal samengesteld worden naar jouw eigen beeld.
@@ -202,14 +205,15 @@ Dit kan in de toekomst werk schelen, doordat onze werkomgeving bij iedereen geli
 \subsubsection{Context}
 \timestamp{2023-09-05}
 Om aan Sailfish OS te kunnen werken in een ontwikkelomgeving moet er een keuze gemaakt worden op welk besturingssysteem de ontwikkelomgeving gaat draaien. 
-We hebben voor het ontwikkelen van de SailfishOS is volgens de porting-guide een 64-bit Linux kernel nodig~\cite{sailfishportingguide}.  
+Volgens de porting-guide van SailfishOS hebben we een 64-bit Linux kernel nodig om SailfishOS verder te ontwikkelen~\cite{sailfishportingguide}.
 De mogelijkheden voor dit project zijn keuzes uit verschillende 64-bit Linux distributies. 
 
+We hebben de volgende distributies vergeleken. De redenen voor de keuze van deze specifieke distributies staan hieronder verder toegelicht.
 \begin{enumerate}
-  \item \href{https://archlinux.org/}{Arch Linux}. - Dit besturingssysteem had ik al op mijn laptop staan
-  \item \href{https://manjaro.org/}{Manjaro} - Manjaro is een Linux distrobutie gebaseerd op Arch Linux. Het wordt geprezen voor simpliciteit en gebruiksvriendelijkheid. 
-  \item \href{https://ubuntu.com/}{Ubuntu} - Ubuntu is gebaseerd op Debian. 
-  \item \href{https://www.kali.org/}{Kali Linux}
+  \item \href{https://archlinux.org/}{Arch Linux}
+  \item \href{https://ubuntu.com/}{Ubuntu}
+  \item \href{https://www.debian.org/}{Debian}
+  \item \href{https://manjaro.org/}{Manjaro}
 \end{enumerate}
 
 
@@ -222,10 +226,11 @@ Dit hebben we gedaan om de volgende twee redenen.
   \item De root-omgeving van SailfishOS is gebaseerd op Ubuntu (20.04 LTS)~\cite{sailfishportingguide}.
 \end{enumerate}
 
-Persoonlijk heb ik er voor gekozen om af te wijken van de team keuze. 
-Ik heb specifieke eisen aan een besturingssysteem. 
-Zo heb ik graag een snel systeem met toegang tot de nieuwste packages, maar is gebruiksvriendelijkheid helemaal geen prioriteit.
-Deze heb ik voor het gemak getoond in het volgende taartdiagram. 
+Persoonlijk heb ik er voor gekozen om af te wijken van de team keuze, omdat ik denk dat ik efficiënter kan werken met een ander besturingssysteem.
+Mijn team ging hier mee akkoord. Ik zal de specifieke redenen hieronder toelichten.
+\par\smallskip
+Ik heb sterke voorkeuren aan mijn besturingssysteem. Zo heb ik graag een snel systeem met toegang tot de nieuwste packages, maar is gebruiksvriendelijkheid helemaal geen prioriteit.
+Mijn prioriteiten heb ik voor het gemak getoond in het volgende taartdiagram. 
 \begin{figure}
   \centering
 \begin{tikzpicture}
@@ -237,58 +242,58 @@ Deze heb ik voor het gemak getoond in het volgende taartdiagram.
   5/Gebruiksvriendelijkheid}
   
 \end{tikzpicture}
-\caption{Belang van }
+\caption{Belang van criteria}
 \label{graph:spec_percentages}
 \end{figure}
 
 Zoals te zien in bovenstaand diagram, vind ik zelf packages het belangrijkst. 
 Wat ik hiermee bedoel is de toegang tot programma's en daarbij ook nieuwe versies van programma's.
-In Linux distributies worden programma's vooral gedownload vanaf package managers. Deze worden 
+In Linux distributies worden programma's vooral gedownload vanaf package managers. Afhankelijk van de package manager kunnen programma's die hierop beschikbaar zijn behoorlijk achterlopen qua versie. 
+\par\smallskip 
+Met minimaliteit bedoel ik dat er weinig toegevoegd is aan het besturingssysteem. Dit heeft mijn persoonlijke voorkeur, omdat het hierdoor wat meer vrijheid biedt in de aanpasbaarheid en het over het algemeen wat sneller is. 
+Ook gebruik ik op deze manier zo min mogelijk opslag, wat erg handig is in ons project.
+\par\smallskip
+Op basis van bovenstaande criteria ga ik de volgende distributies vergelijken. 
+\begin{enumerate}
+  \item Arch Linux, omdat ik deze distributie al gebruik en deze snel en erg minimalistisch is. 
+  \item Ubuntu, omdat deze gebruikt werd door het vorige team en wordt gebruikt door het team van SailfishOS~\cite{sailfishportingguide}.
+  \item Debian, omdat ubuntu hier op gebaseerd is en deze minimalistischer is dan Ubuntu. 
+  \item Manjaro, omdat dit een gebruiksvriendelijke distributie is gebaseerd op Arch Linux 
+\end{enumerate}
+
+In de volgende tabel vergelijk ik de criteria. Op basis van deze criteria maak ik een toegelichte keuze\footnote{De scores in deze tabel zijn gebaseerd op subjectieve en anekdotische ervaringen, en algemene consensus binnen de Linux-gemeenschap. Zo is het, bijvoorbeeld, algemeen geaccepteerd in de Linux-gemeenschap dat een basisinstallatie van Arch Linux minimalistischer is dan een standaard Ubuntu-installatie.}.
+
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{|l|c|}
+  \begin{tabular}{|l|c|c|c|c|c|}
     \hline
-    \textbf{Eis} & \textbf{Gewicht} \\
+    \textbf{Besturingssysteem} & \textbf{Snelheid} & \textbf{Packages} & \textbf{Gebruiksgemak} & \textbf{Stabiliteit} & \textbf{Minimaliteit} \\
     \hline
-    Snelheid & 2 \\
-    Nieuwe Packages & 3 \\
-    Gebruiksvriendelijkheid & 1 \\
-    Stabiliteit & 2 \\
-    Minimaliteit & 3 \\
+    Arch Linux & ++ & ++ & - & + & ++ \\
     \hline
-  \end{tabular}
-  \caption{Gewichten per eis}
-  \label{tab:spec_weights}
-\end{table}
-
-In onderstaande tabel heb ik een lijst gemaakt van een aantal Linux distributies die mij interessant leken.
-
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|l|c|c|c|c|}
+    Ubuntu & + & - & ++ & ++ & - \\
     \hline
-    \textbf{Besturingssysteem} & \textbf{Snelheid} & \textbf{Nieuwe Packages} & \textbf{Gebruiksvriendelijkheid} & \textbf{Stabiliteit} \\
+    Debian & ++ & - & + & + & + \\
     \hline
-    Arch Linux & ++ & ++ & - & + \\
-    \hline
-    Ubuntu & + & - & ++ & ++ \\
-    \hline
-    Linux Mint & + & - & ++ & ++ \\
-    \hline
-    Kali Linux & + & - & ++ & ++ \\
+    Manjaro & + & ++ & ++ & ++ & + \\
     \hline
   \end{tabular}
-  \caption{Ratings for each OS based on specs}
+  \caption{Criteria score per distributie}
   \label{tab:os_ratings}
 \end{table}
 
-
+In bovenstaande tabel is te zien dat de keuze toch ligt tussen Arch Linux en Manjaro.
+Hiertussen is Arch Linux wat minimalistischer, maar is Manjaro normaal gesproken wat stabieler en gebruiksvriendelijker. 
+\par\smallskip
 Op basis van deze punten kies ik voor Arch Linux. 
 Arch Linux biedt toegang tot de AUR. Dit is een package repository die wordt onderhouden door de Arch Linux community.
 Dit stelt een breed scala aan packages tot mijn beschikking, waarvan vele direct worden gebouwd vanuit Github.
 Hiermee heb ik toegang tot bijna elk programma dat beschikbaar is op Linux, met daarbij de laatste versie. 
 Daarnaast is Arch Linux snel en erg stabiel wanneer er wordt gekozen voor de LTS kernel. 
+\par\smallskip
+Hoewel het verschil tussen Manjaro en Arch Linux erg klein is, heb ik meer ervaring met Arch Linux en kan deze beter aangepast worden naar mijn wensen. 
+Dit zal me beter in staat stellen om efficient te werken gedurende het project.
 
 
 \personalchoice{Opzetten ontwikkelsysteem}
@@ -299,12 +304,12 @@ De opties waren als volgt.
 \begin{enumerate}
   \item Linux in een Virtual Machine (VM)
   \item Dual booten naast Windows
-  \item Native runnen
+  \item Native runnen, dat wil zeggen "direct op de laptop, zonder tussenlagen"
 \end{enumerate}
 
 Dual booten naast Windows is exact hetzelfde als native qua performance, omdat het direct op de hardware runt. 
 Het enige verschil ten opzichten van native is dat je minder opslag hebt voor de Linux installatie. Dit komt omdat er natuurlijk ook ruimte nodig is voor Windows en de applicaties en documenten op Windows. 
-
+\par\smallskip
 Native is sneller dan virtual machines. Dit komt door de overhead die wordt toegevoegd door de Hypervisor. 
 Hoeveel overhead dit is, hangt sterk af van veel factoren. Dit zijn dingen zoals de cpu, andere systeemonderdelen, de instellingen van de virtual machine, etc. 
 Daarnaast is in de meeste gevallen een deel van de CPU, RAM en schijf nodig voor de host-besturingssysteem.
@@ -319,7 +324,9 @@ Hoewel het snelheidsverschil tussen een VM en native niet verschrikkelijk is, vo
 Ik had al een native Linux installatie, dus ik had geen reden om over te stappen op een VM. 
 Daarnaast heb ik ook geen Windows nodig, dus is dual booten ook onnodig. 
 \par\smallskip
-Native geeft mij dus het meeste opslag, de snelste 
+Native geeft mij dus het meeste opslag en de beste performance. 
+
+
 \teamchoice{Communicatie}
 \subsubsection{Context}
 \timestamp{2023-09-05}
@@ -334,27 +341,69 @@ We hebben in totaal drie digitale omgevingen nodig.
   \item Een gedeelde plek voor bestandsopslag.
 \end{enumerate}
 
-Voor communicatie kanalen hebben we de volgende lijst aan populaire opties samengesteld.
-\begin{enumerate}
-  \item \href{https://discord.com/}{Discord}
-  \item \href{https://www.whatsapp.com/}{WhatsApp}
-  \item \href{https://www.microsoft.com/en-us/microsoft-teams/group-chat-software}{Microsoft Teams}
-  \item \href{https://slack.com/}{Slack}
-  \item \href{https://telegram.org/}{Telegram}
-\end{enumerate}
-
+De keuze van communicatiekanalen is gemaakt aan de hand van de volgende lijst aan communicatieplatforms, welke is opgesteld aan de hand van een aantal redenen.
+De overweging elke optie binnen de lijst staat genoteerd aan de rechterzijde van tabel \ref{tab:comm_platforms}.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|l|p{10cm}|}
+    \hline
+    \textbf{Platform} & \textbf{Overweging} \\
+    \hline
+    \href{https://discord.com/}{Discord} & Discord werd overwogen vanwege de mogelijkheden georganiseerde kanalen binnen een groep. Ook had onze opdrachtgever hier een sterke voorkeur voor. \\
+    \hline
+    \href{https://www.whatsapp.com/}{WhatsApp} & WhatsApp was een optie vanwege de voorkeuren binnen het team. \\
+    \hline
+    \href{https://www.microsoft.com/en-us/microsoft-teams/group-chat-software}{Microsoft Teams} & Microsoft Teams stond op de lijst vanwege de integraties met andere Microsoft producten, zoals Word, en de voorkeur van onze Gilde meester. \\
+    \hline
+    \href{https://slack.com/}{Slack} & Slack werd overwogen vanwege het gebruik van deze software binnen een ander project en het hierbij erg rijk was een opties en organisatie \\
+    \hline
+    \href{https://telegram.org/}{Telegram} & Telegram was een optie vanwege de populariteit en de mogelijkheid om bestanden te delen. \\
+    \hline
+  \end{tabular}
+  \caption{Overwegingen voor Communicatieplatforms}
+  \label{tab:comm_platforms}
+\end{table}
+Overige communicatieplatforms zijn niet overwogen door een gebrek aan bekendheid binnen het team, of doordat deze opties essentiële features achter een betaling verschuilde.
+We hebben binnen het team immers geen beschikbaar budget voor dit soort applicaties.
+\par\smallskip
 Voor de bestandsopslag hebben we twee grote spelers, namelijk Google Drive en OneDrive. 
-Beide zijn goede opties met vergelijkbare features.
+Beide zijn goede opties met vergelijkbare features. De reden dat we hebben gekozen om deze twee methodes te vergelijken is de populariteit van deze opties.
+Doordat deze opties zo populair zijn, hadden onze teamleden hier al accounts op en waren we al bekwaam in het gebruik van deze services.
 
 \subsubsection{Keuze}
 \timestamp{2023-09-05}
-Voor contact met de opdrachtgever hebben we gekozen voor een Discord server.
-We hebben hiervoor gekozen, omdat de opdrachtgever Discord gebruikt en elk teamlid hier al actief gebruik van maakt.
+Om onze keuze te maken, hebben we voor- en nadelen tegenover elkaar gezet voor elk platform in de volgende tabel.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|l|p{6cm}|p{6cm}|}
+    \hline
+    \textbf{Platform} & \textbf{Voordelen} & \textbf{Nadelen} \\
+    \hline
+    \href{https://discord.com/}{Discord} & Georganiseerde kanalen, hoge aanpasbaarheid, opdrachtgever gebruikt het al, bekendheid binnen het team. & Minder organisatie features dan alternatieven. \\
+    \hline
+    \href{https://www.whatsapp.com/}{WhatsApp} & Snel en eenvoudig, geen nieuwe installaties nodig binnen team. Sterke teamvoorkeur. & Beperkte bestandsgrootte voor delen, afhankelijk van telefoonnummer. Weinig organisatie-tools. \\
+    \hline
+    \href{https://www.microsoft.com/en-us/microsoft-teams/group-chat-software}{Microsoft Teams} & Goede integratie met Microsoft-producten, ondersteund door de Hogeschool. & Werkt niet goed op bepaalde Linux distributies. Niet open-source. Betaalde functies. \\
+    \hline
+    \href{https://slack.com/}{Slack} & Rijk aan functies, goede organisatie van kanalen, integraties met andere tools. & Betaalde functies voor volledige toegang, kan ingewikkeld zijn om op te zetten. \\
+    \hline
+    \href{https://telegram.org/}{Telegram} & Snel, mogelijkheid om grote bestanden te delen, cloud-gebaseerde opslag. & Minder populair in zakelijke context, weinig bekendheid binnen team \\
+    \hline
+  \end{tabular}
+  \caption{Voordelen en Nadelen van Communicatieplatforms}
+  \label{tab:comm_pros_cons}
+\end{table}
+
+Op basis van bovenstaande voor- en nadelen hebben we als team de volgende keuzes gemaakt als communicatiemiddelen.
+\par\smallskip
+Om contact te houden met de opdrachtgever hebben we gekozen voor een Discord server.
+We hebben hiervoor gekozen, omdat de opdrachtgever Discord gebruikt en elk teamlid hier al actief gebruik van maakte.
 \par \smallskip 
-Voor intern teamcontact gebruiken we een Whatsapp groep. Dit vond elk teamlid het fijnst. Hiermee kunnen we snel met elkaar in contact komen en hoeven we geen nieuwe apps te installeren. 
+Voor intern teamcontact gebruiken we een Whatsapp groep. Dit vond het team unaniem de beste optie. Hiermee kunnen we snel met elkaar in contact komen en hoeven we geen nieuwe apps te installeren. 
 \par \smallskip
 Voor bestandsopslag gebruiken we OneDrive. Vanuit de Hogeschool Utrecht krijgen we allemaal standaard een OneDrive omgeving.
 Hier hebben we meer dan voldoende opslag voor bestanden. OneDrive integreert ook gemakkelijk met Microsoft Word. 
+Dat was voor ons reden genoeg om te kiezen voor OneDrive boven Google Drive.
 
 
 % \teamchoice{Programmeertaal}
@@ -372,23 +421,27 @@ Hier hebben we meer dan voldoende opslag voor bestanden. OneDrive integreert ook
 \teamchoice{Docker}
 \subsubsection{Context}
 \timestamp{20-09-2023}
-De huidige build environment wordt opgezet aan de hand van een installation guide.
+De huidige build environment wordt opgezet aan de hand van een installation guide~\cite{fairphonegithub}.
 Daarnaast is er een installatiescript aanwezig.
-Deze zouden moeten werken, maar hebben we tot nu toe nergens gemakkelijk werkend gekregen.
-Tijdens het debuggen gaat het steeds fout op verschillende punten. We denken dat dit komt door overblijvende build files die naar allemaal onbekende plekken in ons systeem worden geschreven.
+Deze zouden moeten werken, maar hebben we dit tot nu toe nergens gemakkelijk werkend gekregen.
+Tijdens het debuggen gaat het steeds fout op verschillende punten. 
+We vermoeden dat dit komt door overblijvende build files die naar allemaal onbekende plekken in ons systeem worden geschreven, gebaseerd op eerdere ervaringen in eerdere projecten.
 
 \subsubsection{Keuze}
 \timestamp{20-09-2023}
 Met oog op overdraagbaarheid denken wij als team dat het een goede keuze is om een Docker environment op te gaan zetten. 
 Hiermee zou de build environment eenvoudig overdraagbaar zijn en zou het gemakkelijk werken op in principe elk systeem, zonder dat er build files overblijven na een compilatie.
-Dit zou ook tijd kunnen gaan schelen tijdens het debuggen. 
+Dit zou ook tijd kunnen gaan schelen tijdens het debuggen~\cite{AffinityBridgeDockerProsCons}. 
 \par\smallskip
-Deze keuze gaat in tegenover een keuze gemaakt door een voorgaand ontwikkelingsteam binnen het Fairphone project. 
+Deze keuze staat tegenover een keuze gemaakt door een voorgaand ontwikkelingsteam binnen het Fairphone project. 
 Dit team koos er voor om niet verder te gaan met Docker, omdat dit vrij lastig bleek en er tegen problemen werd gelopen.
-Wij geloven dat het waardevol is om toch hiermee verder te gaan, omdat dit de overdraagbaarheid enorm vergroot. Wij denken dat deze problemen niet overkomelijk zijn.
+Wij geloven dat het waardevol is om toch hiermee verder te gaan, omdat dit de overdraagbaarheid enorm vergroot. Wij denken dat deze problemen niet onoverkomelijk zijn.
 Hoewel het ons nu meer tijd zal kosten om dit op te zetten, zal dit een potentieel toekomstig ontwikkelingsteam enorm veel tijd schelen.
+Voor het opzetten schatte wij als team tijdens scrum poker zo een 20 manuren voor de opzet van Docker. Hoewel dat waarschijnlijk meer is dan het zou kosten om de build environment nu op te lossen, schatten wij dat de build environment meer problemen zal veroorzaken op een later stadium. 
+Zo is het vorige team daar meerdere sprints mee bezig geweest en leek het steeds op andere punten fout te gaan.
 
-
+\par\smallskip
+De laatste reden voor het opzetten van de Docker omgeving, is omdat de opdrachtgever hier een sterke voorkeur voor had. Door het opzetten van een Docker omgeving, zal een toekomstig team geen weken meer bezig zijn om de build environment op te zetten. In plaats daarvan zal het minder dan een dagdeel moeten duren, namelijk het installeren van Docker en het runnen van de container.
 
 \chapter{Bibliografie}
 % \textit{Nog te doen...}
