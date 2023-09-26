@@ -22,7 +22,9 @@
 \usepackage{tabularx}
 \usepackage{pgf-pie}  
 \usepackage{float}
+\usepackage{pdfpages}
 \usepackage{pgfplots}
+
 % Styling
 \pagestyle{fancy}
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
@@ -145,6 +147,8 @@
     \begin{tabular}{|c|c|c|p{5cm}|}
         \hline
         \textbf{Versie} & \textbf{Datum} & \textbf{Veranderingen}  \\
+        \hline
+        1.5    & 2023-09-26 & Ontvangen en gegeven peer reviews toegevoegd \\
         \hline
         1.4    & 2023-09-25 & Meer details en visuals toegevoegd \\
         \hline
@@ -453,7 +457,72 @@ De laatste reden voor het opzetten van de Docker omgeving, is omdat de opdrachtg
 \bibliography{bronnen}
 \endgroup
 
-% \chapter{Bijlagen}
-% \textit{Ruimte voor peer reviews}
+\chapter{Bijlagen}
+\section{Gegeven Peer Reviews}
+\subsection{Iteratie 1}
+\subsubsection{Remy de Bruijn}
+\noindent
+\begin{minipage}{\textwidth}
+  \centering
+  \fbox{
+  \includegraphics[page=4,scale=0.7]{Appendices/Iteratie 1/PR Remy.pdf}}
+\end{minipage}
 
+\includepdf[pages={5},scale=0.7,frame,pagecommand={}]{Appendices/Iteratie 1/PR Remy.pdf}
+\subsubsection{Joris Maas}
+\begin{minipage}{\textwidth}
+  \centering
+  \fbox{
+  \includegraphics[page=4,scale=0.7]{Appendices/Iteratie 1/PR Joris.pdf}}
+\end{minipage}
+
+\includepdf[pages={5},scale=0.7,frame,pagecommand={}]{Appendices/Iteratie 1/PR Joris.pdf}
+
+\section{Ontvangen Peer Reviews}
+\subsection{Iteratie 1}
+\subsubsection{Kyrill Westdorp}
+Van Kyrill heb ik de volgende tips gekregen.
+\begin{enumerate}
+  \item Aan het eind van je inleiding staat “Daarmee hopen wij meer inzicht te bieden in het verloop van het project en waarom voor bepaalde dingen zijn gekozen.” Ik zou er niet neerzetten hopen wij meer maar hoop ik meer inzicht te bieden in het verloop van het project en waarom voor bepaalde dingen is gekozen. Dit omdat als je wij gaat zeggen leg je de verantwoordelijkheid van dit document ook bij je groepsleden neer en dat klopt voor mijn gevoel niet omdat dit een persoonlijk document is (behalve de teamkeuzes dan).
+  \item Bij je Projectbeschrijving zou ik graag wat meer uitleg willen waarom je niet afhankelijk wil zijn van Google en haar Play Services.
+\end{enumerate}
+En de volgende tops:
+\begin{enumerate}
+  \item Je uitleg over de keuze welk besturingssysteem jullie als team hebben gekozen en waarom je ervan afwijkt.
+  \item Je maakt heel duidelijk waarom je afwijkt van de teamkeuze en beargumenteert die goed.
+  \item De taartdiagram en de tabel geven extra duidelijkheid en zijn makkelijk af te lezen.
+  \item Voor elke keuze geef je netjes andere opties weer en je legt duidelijk uit wat je keuze is uit die opties en waarom.
+\end{enumerate}
+
+De feedback van Kyrill is duidelijk en concreet. Hij licht toe waarom bepaalde dingen verbeterd kunnen worden, in plaats van alleen te vertellen wat er beter kan. 
+Aan de hand van de feedback ga ik de volgende dingen verbeteren voor de volgende iteratie:
+\begin{enumerate}
+  \item De inleiding aanpassen, zodat er niet 'wij' staat. Het is een persoonlijk document, dus het is inderdaad raar dat ik daar 'wij' gebruik. 
+  \item In de projectbeschrijving ga ik toelichten waarom we niet afhankelijk willen zijn van Google en haar play services, omdat dit een belangrijk standpunt is dat we hebben ingenomen. Dit maakt het duidelijker waarom ik voor bepaalde keuzes zijn gegaan in het document.
+\end{enumerate}
+
+\subsubsection{Jasper Middendorp}
+Van Jasper heb ik de volgende tips gekregen.
+\begin{enumerate}
+  \item In de zin “bij het volgende taartdiagram” in Laptop OS keuze, staat het taart diagram erboven. Misschien aangeven met een referentie naar het figuur 4.1?
+  \item Wat is de “LTS kernel” als Arch Linux er snel en stabiel mee is?
+  \item In 4.4 Communicatie is er inderdaad verwezen naar de Tabel 4.2 die er gemaakt is. Was het niet handiger om dit in een lopend stukje tekst te schrijven?
+  \item In 4.5 Docker: “Voor het opzetten schatten wij als team tijdens scrum poker zo ongeveer 20 manuren voor de opzet van Docker.” Is voor mij een leesbaardere manier verwoordt.
+\end{enumerate}
+En de volgende tops:
+\begin{enumerate}
+  \item Snelle en duidelijke introductie en project beschrijving.
+  \item Heel diepgaand in de keuze waarom je dat OS hebt gebruikt, heel duidelijk wat je mening is.
+  \item Handig dat je labelt wanneer je de keuze gemaakt hebt en wanneer de vraag voor die keuze is gestart.
+  \item Voor de rest is alles in het algemeen heel duidelijk aangegeven hoe en waarom je deze keuzes hebt gemaakt.
+\end{enumerate}
+
+De feedback van Jasper laat belangrijke punten zien die ik nog verder kan toelichten of aanpassen om de tekst leesbaarder en overzichtelijker te maken.
+In de volgende iteratie ga ik de volgende concrete dingen aanpassen: 
+\begin{enumerate}
+  \item Een referentie toevoegen naar figuur 4.1, zodat het duidelijk is naar welk figuur de tekst verwijst.
+  \item Uitleggen wat de LTS kernel is en waarom deze snel en stabieler is. 
+  \item Ik ga uitzoeken of het beter is om tabel 4.2 te vervangen met een lopend verhaal en, zo ja, dit te doen.
+  \item Ik ga de zin in hoofdstuk 4.5 Docker aanpassen, zodat deze leesbaarder is. 
+\end{enumerate}
 \end{document}
