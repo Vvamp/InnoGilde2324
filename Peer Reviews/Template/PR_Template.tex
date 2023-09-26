@@ -1,0 +1,171 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{report}
+%\usepackage[date=short,backend=biber]{apa}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage[dutch]{babel}
+\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{helvet}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{pgf-pie}  
+\usepackage{float}
+\usepackage{pgfplots}
+% Styling
+\pagestyle{fancy}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\fancyhf{}
+\fancyhead[L]{Reviewer: Vincent van Setten }
+\fancyhead[R]{Beoordeelde: }
+\fancyhead[C]{Peer Review}
+\fancyfoot[R]{\thepage}
+
+\titleformat{\chapter}[hang]
+{\normalfont\huge\bfseries}{\thechapter.}{10pt}{\huge}
+\titlespacing{\chapter}{0pt}{-30pt}{20pt}
+
+\setlength{\parindent}{0.2em}
+
+\textwidth=400pt
+\geometry{
+    left=25mm
+}
+
+\renewcommand{\contentsname}{Inhoudsopgave}
+
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% Commands
+\newcommand{\teambox}{
+  \begin{tcolorbox}[hbox, colback=blue!5!white,colframe=blue!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Team Keuze
+  \end{tcolorbox}
+}
+
+\newcommand{\personalbox}{
+  \begin{tcolorbox}[hbox, colback=green!5!white,colframe=green!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Persoonlijke Keuze
+  \end{tcolorbox}
+}
+\newcommand{\teamchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\teambox}}}
+}
+
+\newcommand{\personalchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\personalbox}}}
+}
+
+\newcommand{\timestamp}[1]{
+  \mbox{\scriptsize \textbf{Datum:} #1} \smallbreak
+}
+
+% Document
+\begin{document}
+
+
+% Title Page
+\begin{titlepage}
+  \begin{center}
+      \vspace*{.9cm}
+      \Huge
+      \textbf{ Peer Review }\\
+      \vspace{0.2cm}
+      \small \textbf{Datum:} \today \\
+      \small TI Gilde, Groep D \\
+
+      \vspace{2cm}
+      \normalsize
+      \vspace{1cm}
+      \Large
+      \textbf{In opdracht van}\\
+      \large
+      \textbf{Hogeschool Utrecht} \\
+      \includegraphics[width=0.2\textwidth]{Images/logouni.png}
+      \vfill
+
+      \begin{minipage}{0.45\textwidth}
+        \textbf{Reviewer}\\
+        \textbf{Student:} Vincent van Setten \\
+        \textbf{Studentnummer:} 1734729 \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} FairPhone (499) \\
+        \vspace{2cm}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.45\textwidth}
+        \textbf{Beoordeelde}\\
+        \textbf{Student:}  \\
+        \textbf{Studentnummer:} \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:}  \\
+        \vspace{2cm}
+      \end{minipage}
+    \end{center}
+\end{titlepage}
+
+
+\tableofcontents
+
+\chapter{Inleiding}
+Dit document bevat mijn peer review van het verantwoordingsdocument geschreven door [Naam van de Beoordeelde], die betrokken is bij het project "[Naam van het Project]". 
+Het primaire doel van deze review is om een constructieve analyse te bieden die verder gaat dan alleen een algemene indruk. 
+Ik zal kijken naar zowel de technische als conceptuele aspecten van het document. Ook zal ik suggesties en potentiële feedback bieden op het project als geheel, wanneer dit naar mijn mening noodzakelijk is.
+\par \smallskip
+In lijn met de beoordelingscriteria zal mijn focus niet alleen liggen op de grammatica en spelling van het document, maar zal ik ook kritisch kijken naar de helderheid, consistentie en volledigheid van de inhoud.
+Hiermee hoop ik de kwaliteit van het document, en mogelijk ook het project, te verbeteren.
+
+
+\chapter{Bibliografie}
+% \nocite{*} % This includes all entries from the .bib file, even if they're not cited in the document
+\begingroup
+\renewcommand{\chapter}[2]{} % Removes the 'Chapter' heading
+\renewcommand{\addcontentsline}[3]{} % Prevents adding this specific entry to TOC
+\bibliographystyle{ieeetr}
+\bibliography{bronnen}
+\endgroup
+
+% \chapter{Bijlagen}
+% \textit{Ruimte voor peer reviews}
+
+\end{document}

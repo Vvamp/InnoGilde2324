@@ -1,0 +1,257 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{report}
+%\usepackage[date=short,backend=biber]{apa}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage[dutch]{babel}
+\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{helvet}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{pgf-pie}  
+\usepackage{float}
+\usepackage{pgfplots}
+% Styling
+\pagestyle{fancy}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\fancyhf{}
+\fancyhead[L]{Reviewer: Vincent van Setten }
+\fancyhead[R]{Beoordeelde: Remy de Bruijn}
+\fancyhead[C]{Peer Review}
+\fancyfoot[R]{\thepage}
+
+\titleformat{\chapter}[hang]
+{\normalfont\huge\bfseries}{\thechapter.}{10pt}{\huge}
+\titlespacing{\chapter}{0pt}{-30pt}{20pt}
+
+\setlength{\parindent}{0.2em}
+
+\textwidth=400pt
+\geometry{
+    left=25mm
+}
+
+\renewcommand{\contentsname}{Inhoudsopgave}
+
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% Commands
+\newcommand{\teambox}{
+  \begin{tcolorbox}[hbox, colback=blue!5!white,colframe=blue!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Team Keuze
+  \end{tcolorbox}
+}
+
+\newcommand{\personalbox}{
+  \begin{tcolorbox}[hbox, colback=green!5!white,colframe=green!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Persoonlijke Keuze
+  \end{tcolorbox}
+}
+\newcommand{\teamchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\teambox}}}
+}
+
+\newcommand{\personalchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\personalbox}}}
+}
+
+\newcommand{\timestamp}[1]{
+  \mbox{\scriptsize \textbf{Datum:} #1} \smallbreak
+}
+
+% Document
+\begin{document}
+
+
+% Title Page
+\begin{titlepage}
+  \begin{center}
+      \vspace*{.9cm}
+      \Huge
+      \textbf{ Peer Review }\\
+      \vspace{0.2cm}
+      \small \textbf{Datum:} \today \\
+      \small TI Gilde, Groep D \\
+
+      \vspace{2cm}
+      \normalsize
+      \vspace{1cm}
+      \Large
+      \textbf{In opdracht van}\\
+      \large
+      \textbf{Hogeschool Utrecht} \\
+      \includegraphics[width=0.2\textwidth]{Images/logouni.png}
+      \vfill
+
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Reviewer}\\
+        \normalsize
+        \textbf{Student:} Vincent van Setten \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} FairPhone (499) \\
+        \vspace{2cm}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Beoordeelde}\\
+        \normalsize
+        \textbf{Student} Remy de Bruijn  \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} FairPhone (499) \\
+        \vspace{2cm}
+      \end{minipage}
+    \end{center}
+\end{titlepage}
+
+
+\tableofcontents
+
+\chapter{Inleiding}
+Dit document bevat mijn peer review van het verantwoordingsdocument geschreven door Remy de Bruijn, die betrokken is bij het project "FairPhone". 
+Het primaire doel van deze review is om een constructieve analyse te bieden die verder gaat dan alleen een algemene indruk. 
+Ik zal kijken naar zowel de technische als conceptuele aspecten van het document. Ook zal ik suggesties en potentiële feedback bieden op het project als geheel, wanneer dit naar mijn mening noodzakelijk is.
+\par \smallskip
+In lijn met de beoordelingscriteria zal mijn focus niet alleen liggen op de grammatica en spelling van het document, maar zal ik ook kritisch kijken naar de helderheid, consistentie en volledigheid van de inhoud.
+Hiermee hoop ik de kwaliteit van het document, en mogelijk ook het project, te verbeteren.
+\chapter{Gedetailleerde Review}
+\section{Structuur}
+Over het algemeen is het document logisch gestructureerd en goed te volgen. 
+De hoofdstukken zijn goed onderverdeeld in sub-hoofdstukken wanneer dit logisch is.
+Zo zijn de keuzes over de ontwikkelomgeving en de keuze voor het opzetten van het ontwikkelsysteem onderverdeeld onder een enkel hoofdstuk, maar onderverdeeld onder meerdere sub-hoofdstukken.
+Verder is er een bibliografie met referenties, een inhoudsopgave en versiebeheer. Dit maakt het document erg overzichtelijk en goed te volgen.
+De voorpagina en verdere vormgeving zorgen er voor dat het document er net en verzorgd uit ziet. Wat dat betreft echt super gedaan. 
+\par\smallskip
+Wat ik persoonlijk anders zou doen is de inleiding onder de versiebeheer en de inhoudsopgave te plaatsen. 
+Hierdoor kun je gemakkelijker zien welk document je hebt, wat er in staat en andere globale informatie. 
+Dit zorgt naar mijn mening ook voor een betere flow bij de inhoudsopgave. Als je nu op de inleiding klikt, schiet je naar boven, wat voor mijn gevoel wat onlogisch voelt. 
+Kijk bijvoorbeeld naar het scribbr blog dat beschrijft hoe je een scriptie schrijft\cite{scribbrThesis}. 
+Je schrijft natuurlijk geen scriptie, maar dit laat wel zien wat de algemene structuur van een overzichtelijk document kan zijn.
+\par\smallskip
+Verder zou ik de volgende keer wat beter letten op het updaten van de inhoudsopgave. Deze laat nu niet alle hoofdstukken zien.
+Wat ik daarnaast nog lastig vind is de keuze om het hoofdstuk "uitvoering" in een nieuw hoofdstuk te doen. 
+Naar mijn idee had je de keuzes gestructureerd onder hoofdstuk twee. Dus, de keuze om "uitvoering" onder hoofdstuk drie te zetten is voor mij wat verwarrend. 
+
+\section{Inhoud}
+Ook qua inhoud vind ik het een goed begin. 
+De inleiding geeft mij persoonlijk een duidelijk beeld van de opdracht en wat er van jouw verwacht wordt.
+Ook laat je goed zien waarom je bepaalde keuzes hebt gemaakt en wat de alternatieven zijn. 
+Daarnaast is het mij snel duidelijk of het een teamkeuze of een persoonlijke keuze betreft.
+\par\smallskip 
+Er zijn een aantal punten die ik anders zou doen, of zou toevoegen.
+Hoewel je alternatieven keuzes beschrijft, onderbouw je deze niet helemaal volledig. 
+Waarom heb je bijvoorbeeld wel gekozen om Manjaro en Kali Linux te bekijken, maar niet Linux Mint?
+\par\smallskip
+Verder raad ik aan om data toe te voegen aan je keuzes. Het zou namelijk zo maar kunnen dat je je mening verandert over een keuze op een later moment. 
+In plaats van dan de oude keuze te vervangen, denk ik dat het mooier is om toe te voegen dat je mening is verandert met daarbij de datum.
+Zo krijg je een mooie flow van hoe je keuzes zijn verandert, maar ook waarom je uiteindelijk bij de meest recente keuze bent uitgekomen. 
+Zo wordt dus je hele gedachteproces veel duidelijker.
+\par\smallskip
+Ook denk ik dat het beter is om bepaalde stellingen nog verder te onderbouwen met referenties. 
+Zo stel je in hoofdstuk 2.1, geparafraseerd: "Docker is niet veel trager dan native, maar (...)". Het zou kunnen helpen om een vergelijking of bron toe te voegen. 
+Hiermee laat je zien dat je bepaalde keuzes echt hebt uitgezocht. Daarnaast zou je uit bronnen bepaalde grafieken of andere visuals kunnen halen, welke de tekst van jouw document wat kunnen opbreken.
+
+\section{Taal en Spelling}
+Het taalgebruik en spelling in je document is goed. Je beheerst de Nederlandse taal goed en dit maakt het makkelijk om je document te lezen.
+Ook maak je goed gebruik van interpunctie, wat enorm helpt bij het lezen van het document. 
+\par\smallskip 
+Er zijn wel een aantal snelheidsfouten die ik heb opgemerkt in je document. Dit zorgt er voor mij voor dat het soms wat lastiger te volgen is. 
+Naar mijn idee komen deze vooral doordat je wat aanpast, maar dan niet nogmaals de hele zin leest. 
+Zo heb ik bijvoorbeeld de volgende zin: "We hebben voor het ontwikkelen van de SailfishOS is volgens de handleiding een 64-bit Linux kernel nodig".  
+Het stukje "van de SailfishOS is" loopt een beetje apart, naar mijn mening. 
+\par\smallskip 
+Zo heb ik nog een aantal stukjes die een beetje apart lezen, waarschijnlijk door wat stroeve zinnen die over het hoofd gezien zijn bij het nalezen.
+Ik kan je, als je dat graag wil, face-to-face nog wat voorbeelden aanwijzen zodat je deze kan aanpassen.
+\chapter{Samengevatte Review}
+\section{Concrete Tops}
+Al met al vind ik dat je een super mooi document hebt. Hoewel er altijd ongetwijfeld altijd nog wat beter kan, denk ik dat je een heel mooi begin hebt voor een goed cijfer. 
+Het document ziet er verzorgd en net uit en heeft een mooie basis om je verdere keuzes te beschrijven en onderbouwen.
+Ik denk dat document mooi overzichtelijk is en je hiermee gemakkelijk keuzes kan terugvinden.
+Toch wil ik je wat concrete 'tops' geven, om zo te laten zien wat ik denk dat je zeker moet behouden in nieuwe iteraties van het document. 
+
+\begin{enumerate}
+  \item Het voorblad is mooi en laat mij duidelijke informatie zien. Ik zie in een oogopslag wie je bent, waar het document voor dient, welke versie ik heb en in welk team je zit.
+  \item De versiebeheer is duidelijk en helpt om te zien welke veranderingen je hebt gemaakt op een bepaald moment.
+  \item Je gebruik van gekleurde koppen maakt het document gestructureerd en leesbaar.
+  \item De bibliografie is voor mij duidelijk en het is fijn dat deze links bevat naar de specifieke bronnen.
+  \item Het is duidelijk of je een team keuze of een persoonlijke keuze hebt gemaakt.
+  \item Doordat de inhoudsopgave klikbare links heeft, kan ik gemakkelijk door het document navigeren.
+\end{enumerate}
+
+\section{Concrete Tips}
+Op basis van wat ik hierboven heb beschreven, zou ik je de volgende concrete aanbevelingen doen. 
+Deze zijn gebaseerd op mijn meningen en mijn interpretatie van de opdracht. 
+Als je het er niet mee eens bent, hoef je deze punten dus niet per se aanpassen.
+Dit zijn dingen die ik persoonlijk zou aanpassen als ik aan de opdracht zou willen voldoen.
+
+\begin{enumerate}
+  \item Plaats de inleiding onder de inhoudsopgave en de versiebeheer.
+  \item Pas de inhoudsopgave aan, zodat deze alle hoofdstukken laat zien.
+  \item Ik zou de hoofdstuk nummering aanpassen voor het communicatie hoofdstuk, of misschien de overkoepelende hoofdstukken beter benoemen.
+  \item Probeer alternatieven voor je keuzes wat beter te onderbouwen(als in, waarom heb je gekozen voor die specifieke alternatieven).
+  \item Bekijk of je meer referenties kan vinden voor bepaalde claims.
+  \item Lees nog even je zinnen na, om te controleren of ze nog goed lopen.
+\end{enumerate}
+
+\section{Conclusie}
+Al met al, vind ik dat je een hele mooie start hebt gemaakt. Het document is leesbaar en voldoet naar mijn mening aan de eisen voor een goed document. 
+Er zijn een aantal dingen die nog verbeterd zouden kunnen worden als je zou willen excelleren, maar in de huidige vorm vind ik de beredeneringen voor jouw keuzes al duidelijk en makkelijk vindbaar.
+Mijn tips zijn vooral opmaak en schoonheidsdingen, die je document simpelweg nog wat duidelijker zouden maken voor mij persoonlijk. 
+\par\smallskip
+Echter, nogmaals, naar mijn mening heb je een mooi document in elkaar gezet.
+
+\chapter{Bibliografie}
+% \nocite{*} % This includes all entries from the .bib file, even if they're not cited in the document
+\begingroup
+\renewcommand{\chapter}[2]{} % Removes the 'Chapter' heading
+\renewcommand{\addcontentsline}[3]{} % Prevents adding this specific entry to TOC
+\bibliographystyle{ieeetr}
+\bibliography{bronnen}
+\endgroup
+
+% \chapter{Bijlagen}
+% \textit{Ruimte voor peer reviews}
+
+\end{document}

@@ -1,0 +1,251 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{report}
+%\usepackage[date=short,backend=biber]{apa}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage[dutch]{babel}
+\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{helvet}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{pgf-pie}  
+\usepackage{float}
+\usepackage{pgfplots}
+% Styling
+\pagestyle{fancy}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\fancyhf{}
+\fancyhead[L]{Reviewer: Vincent van Setten }
+\fancyhead[R]{Beoordeelde: Joris Maas}
+\fancyhead[C]{Peer Review}
+\fancyfoot[R]{\thepage}
+
+\titleformat{\chapter}[hang]
+{\normalfont\huge\bfseries}{\thechapter.}{10pt}{\huge}
+\titlespacing{\chapter}{0pt}{-30pt}{20pt}
+
+\setlength{\parindent}{0.2em}
+
+\textwidth=400pt
+\geometry{
+    left=25mm
+}
+
+\renewcommand{\contentsname}{Inhoudsopgave}
+
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% Commands
+\newcommand{\teambox}{
+  \begin{tcolorbox}[hbox, colback=blue!5!white,colframe=blue!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Team Keuze
+  \end{tcolorbox}
+}
+
+\newcommand{\personalbox}{
+  \begin{tcolorbox}[hbox, colback=green!5!white,colframe=green!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Persoonlijke Keuze
+  \end{tcolorbox}
+}
+\newcommand{\teamchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\teambox}}}
+}
+
+\newcommand{\personalchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\personalbox}}}
+}
+
+\newcommand{\timestamp}[1]{
+  \mbox{\scriptsize \textbf{Datum:} #1} \smallbreak
+}
+
+% Document
+\begin{document}
+
+
+% Title Page
+\begin{titlepage}
+  \begin{center}
+      \vspace*{.9cm}
+      \Huge
+      \textbf{ Peer Review }\\
+      \vspace{0.2cm}
+      \small \textbf{Datum:} \today \\
+      \small TI Gilde, Groep D \\
+
+      \vspace{2cm}
+      \normalsize
+      \vspace{1cm}
+      \Large
+      \textbf{In opdracht van}\\
+      \large
+      \textbf{Hogeschool Utrecht} \\
+      \includegraphics[width=0.2\textwidth]{Images/logouni.png}
+      \vfill
+
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Reviewer}\\
+        \normalsize
+        \textbf{Student:} Vincent van Setten \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} FairPhone (499) \\
+        \vspace{2cm}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Beoordeelde}\\
+        \normalsize
+        \textbf{Student} Joris Maas  \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} LearnDiTwin (535) \\
+        \vspace{2cm}
+      \end{minipage}
+    \end{center}
+\end{titlepage}
+
+
+\tableofcontents
+
+\chapter{Inleiding}
+Dit document bevat mijn peer review van het verantwoordingsdocument geschreven door Joris Maas, die betrokken is bij het project "LearnDiTwin". 
+Het primaire doel van deze review is om een constructieve analyse te bieden die verder gaat dan alleen een algemene indruk. 
+Ik zal kijken naar zowel de technische als conceptuele aspecten van het document. Ook zal ik suggesties en potentiële feedback bieden op het project als geheel, wanneer dit naar mijn mening noodzakelijk is.
+\par \smallskip
+In lijn met de beoordelingscriteria zal mijn focus niet alleen liggen op de grammatica en spelling van het document, maar zal ik ook kritisch kijken naar de helderheid, consistentie en volledigheid van de inhoud.
+Hiermee hoop ik de kwaliteit van het document, en mogelijk ook het project, te verbeteren.
+
+
+\chapter{Gedetailleerde Review}
+\section{Structuur}
+% Structuur van het document
+Het document is mooi onderverdeeld in kopjes en subkopjes. Deze zijn logisch verdeeld. 
+Doordat deze onderverdeeld zijn onder team keuzes en persoonlijke keuzes, is het makkelijk om te zien om wat voor keuze het gaat.
+Ook heb je een logboek, wat inzicht geeft over het verloop van je project.
+\par\smallskip 
+Persoonlijk zou ik wel een aantal kleine aanpassingen maken aan de structuur van je document. 
+Zo zou, naar mijn mening, een versiebeheer en inhoudsopgave het makkelijker maken om je verantwoordingsdocument te navigeren.
+Met een versiebeheer is het makkelijker om latere iteraties van je document te reviewen, omdat ik dan niet door het document hoef te zoeken naar nieuwe of veranderde dingen.
+Verder zou een inhoudsopgave enorm helpen om te zien hoe je document is gestructureerd en maakt dit het makkelijker om te navigeren naar een bepaalde keuze.
+
+
+\section{Inhoud}
+% Inhoudelijk
+Ten eerste, super mooie inleiding. Het is mij als buitenstaander direct duidelijk waarom het project nodig is en wat het project inhoudt. 
+Verder zijn je keuzes mooi samengevat en beschreven. 
+Ook vind ik het gebruik van afbeeldingen een super idee. Hiermee breek je de tekst wat op, wat het makkelijker maakt om je document te lezen.
+\par\smallskip 
+Wat ik zelf nog zou toevoegen is wat diepgaandere argumenten voor je keuzes en redenen waarom je hebt gekozen voor bepaalde alternatieven. 
+Zo beschrijf je dat er nagedacht is over verschillende scrum omgevingen, maar is het niet heel duidelijk waarom je wel of niet voor die alternatieven hebt gekozen en waarom je andere alternatieven niet hebt overwogen.
+Door dit toe te voegen denk ik dat het je document een stuk overtuigender zal maken. Hiermee zullen mensen die je document lezen het sneller met je eens zijn over waarom bepaalde keuzes de beste keuzes waren. 
+\par\smallskip 
+Je hebt verder nog wat boilerplate tekst staan. Zo is hoofdstuk 4 nog leeg en heeft je tijdlijn/logboek lege vakken. 
+Het is te begrijpen, omdat het nog de eerste iteratie is. Persoonlijk had ik dat nog even weggehaald.
+\par\smallskip 
+Ook zou je kunnen overwegen om timestamps/data toe te voegen aan je keuzes. 
+Zo zal het waarschijnlijk voorkomen dat je later in het project een keuze zal veranderen. In plaats van dat je dan de oude keuze weghaalt, kan je simpelweg je nieuwe keuze toevoegen met een recentere timestamp.
+Op deze manier krijg je een overzicht van het verloop van je keuze-proces, wat op een later stadium misschien heel handig kan zijn. 
+
+\section{Taal en Spelling}
+%Taalgebruik en spelling
+Je bent bekwaam in Nederlands en maakt goed gebruik van interpunctie, wat de leesbaarheid van je document ten goede komt. 
+Mede door het gebruik van afbeeldingen, maar ook door de interpunctie en taalgebruik, was het lezen van je document een eitje. 
+Het las makkelijk weg en je hebt een prettige manier van schrijven.
+\par\smallskip 
+Wel liep ik vast op een paar kleine zinnen. 
+Zo schrijf je in hoofdstuk 2.1 scrum het volgende: "Na te proberen accounts aan te maken voor onze eerste keuze, Jiro. Gaven wij Github een kans doordat het github projectboard uit persoonlijke ervaring erg geschikt bleek voor het vorige Technische Informatica project".
+Deze zin las wat lastig. Ten eerste denk ik dat je met "Jiro" "Jira" bedoelt, maar het grootste punt is dat het lijkt dat de deze twee zinnen er eigenlijk een had moeten zijn. Ik denk dat deze zin persoonlijk wat aangepast kan worden, zodat het wat makkelijker te lezen zal zijn. 
+Zo kan je bijvoorbeeld schrijven, als ik je zin goed begrijp: "Nadat we hadden geprobeerd een account aan te maken voor onze eerste keuze, Jira, gaven wij Github een kans. Dit deden we, omdat we uit eerder opgedane ervaringen weten dat het Github projectboard erg geschikt is".
+\par\smallskip
+Ook ben je af en toe was inconsistent met hoofdletter gebruik. Dit doe je bijvoorbeeld in hoofdstuk 2.4 en 2.5 met het woord Unity. Ook doe je het in hoofdstuk 2.1 bij het woord Github. 
+Met andere woorden doe je het echter wel heel consistent.
+\par \smallskip 
+In hoofdstuk 3.1 lijkt het alsof je de volledige benaming van BIM niet helemaal hebt uitgeschreven. Het lijkt afgekapt bij de 'm'. 
+
+\chapter{Samengevatte Review}
+\section{Concrete Tops}
+Al met al vind ik dat je een mooi basis document hebt. Je beschrijft al een groot aantal keuzes, wat laat zien dat je er actief mee bezig bent.
+Ik denk dat document mooi overzichtelijk is en je hiermee gemakkelijk keuzes kan terugvinden.
+Toch wil ik je wat concrete 'tops' geven, om zo te laten zien wat ik denk dat je zeker moet behouden in nieuwe iteraties van het document. 
+
+\begin{enumerate}
+  \item Het voorblad is mooi en laat mij duidelijke informatie zien. Ik zie in een oogopslag wie je bent, waar het document voor dient en in welk team je zit.
+  \item De inleiding is prachtig, leest makkelijk weg en maakt duidelijk waar het project voor dient. 
+  \item Je hoofdstukken zijn goed georganiseerd. Het is duidelijk waar ik bepaalde keuzes kan vinden. 
+  \item Het gebruik van een tijdlijn/logboek is erg mooi. Ik kan een mooi verloop zien van het project.
+  \item Je gebruikt plaatjes om de tekst op te breken. Dit maakt het makkelijker om je document te lezen en helpt in het begrip.
+\end{enumerate}
+
+\section{Concrete Tips}
+Op basis van wat ik hierboven heb beschreven, zou ik je de volgende concrete aanbevelingen doen. 
+Deze zijn gebaseerd op mijn meningen en mijn interpretatie van de opdracht. 
+Als je het er niet mee eens bent, hoef je deze punten dus niet per se aanpassen.
+Dit zijn dingen die ik persoonlijk zou aanpassen als ik aan de opdracht zou willen voldoen.
+
+\begin{enumerate}
+  \item Voeg een versiebeheer en inhoudsopgave toe, om je document nog gestructureerder te maken. Je zou kunnen kijken naar een scribbr artikel, wat een overview geeft voor een scriptie~\cite{scribbrThesis}.
+  \item Je hebt nog wat boilerplate tekst in je document staan, wat ik zou weghalen.
+  \item Je kan timestamps toevoegen om potentiële keuzeveranderingen overzichtelijk te maken.
+  \item Ook zou je bepaalde alternatieven en argumenten beter kunnen onderbouwen met bijvoorbeeld referenties. Waarom heb je bijvoorbeeld voor bepaalde alternatieven gekozen en waarom is jouw keuze de beste geweest.
+\end{enumerate}
+
+\section{Conclusie}
+Je hebt een mooi document en je beschrijft al veel keuzes. 
+Hoewel ik denk dat je bepaalde keuzes nog verder kan beargumenteren en onderbouwen, heb je naar mijn mening al een mooie basis. 
+Je document ziet er net uit en is mooi gestructureerd. Al met al denk ik dat je dus een mooie basis hebt voor een prachtig verantwoordingsdocument.
+
+\chapter{Bibliografie}
+% \nocite{*} % This includes all entries from the .bib file, even if they're not cited in the document
+\begingroup
+\renewcommand{\chapter}[2]{} % Removes the 'Chapter' heading
+\renewcommand{\addcontentsline}[3]{} % Prevents adding this specific entry to TOC
+\bibliographystyle{ieeetr}
+\bibliography{bronnen}
+\endgroup
+
+% \chapter{Bijlagen}
+% \textit{Ruimte voor peer reviews}
+
+\end{document}
