@@ -1,0 +1,228 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{report}
+%\usepackage[date=short,backend=biber]{apa}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage[dutch]{babel}
+\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{helvet}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{pgf-pie}  
+\usepackage{float}
+\usepackage{pgfplots}
+% Styling
+\pagestyle{fancy}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\fancyhf{}
+\fancyhead[L]{Reviewer: Vincent van Setten }
+\fancyhead[R]{Beoordeelde: Jasper Middendorp}
+\fancyhead[C]{Peer Review}
+\fancyfoot[R]{\thepage}
+
+\titleformat{\chapter}[hang]
+{\normalfont\huge\bfseries}{\thechapter.}{10pt}{\huge}
+\titlespacing{\chapter}{0pt}{-30pt}{20pt}
+
+\setlength{\parindent}{0.2em}
+
+\textwidth=400pt
+\geometry{
+    left=25mm
+}
+
+\renewcommand{\contentsname}{Inhoudsopgave}
+
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% Commands
+\newcommand{\teambox}{
+  \begin{tcolorbox}[hbox, colback=blue!5!white,colframe=blue!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Team Keuze
+  \end{tcolorbox}
+}
+
+\newcommand{\personalbox}{
+  \begin{tcolorbox}[hbox, colback=green!5!white,colframe=green!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Persoonlijke Keuze
+  \end{tcolorbox}
+}
+\newcommand{\teamchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\teambox}}}
+}
+
+\newcommand{\personalchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\personalbox}}}
+}
+
+\newcommand{\timestamp}[1]{
+  \mbox{\scriptsize \textbf{Datum:} #1} \smallbreak
+}
+
+% Document
+\begin{document}
+
+
+% Title Page
+\begin{titlepage}
+  \begin{center}
+      \vspace*{.9cm}
+      \Huge
+      \textbf{ Peer Review }\\
+      \vspace{0.2cm}
+      \small \textbf{Datum:} \today \\
+      \small TI Gilde, Groep D \\
+
+      \vspace{2cm}
+      \normalsize
+      \vspace{1cm}
+      \Large
+      \textbf{In opdracht van}\\
+      \large
+      \textbf{Hogeschool Utrecht} \\
+      \includegraphics[width=0.2\textwidth]{Images/logouni.png}
+      \vfill
+
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Reviewer}\\
+        \normalsize
+        \textbf{Student:} Vincent van Setten \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} FairPhone (499) \\
+        \vspace{2cm}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Beoordeelde}\\
+        \normalsize
+        \textbf{Student} Jasper Middendorp  \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} Sceptr (508) \\
+        \vspace{2cm}
+      \end{minipage}
+    \end{center}
+\end{titlepage}
+
+
+\tableofcontents
+
+\chapter{Inleiding}
+Dit document bevat mijn peer review van het verantwoordingsdocument geschreven door Jasper Middendorp, die betrokken is bij het project "Sceptr". 
+Het primaire doel van deze review is om een constructieve analyse te bieden die verder gaat dan alleen een algemene indruk. 
+Ik zal kijken naar zowel de technische als conceptuele aspecten van het document. Ook zal ik suggesties en potentiële feedback bieden op het project als geheel, wanneer dit naar mijn mening noodzakelijk is.
+\par \smallskip
+In lijn met de beoordelingscriteria zal mijn focus niet alleen liggen op de grammatica en spelling van het document, maar zal ik ook kritisch kijken naar de helderheid, consistentie en volledigheid van de inhoud.
+Hiermee hoop ik de kwaliteit van het document, en mogelijk ook het project, te verbeteren.
+
+
+\chapter{Gedetailleerde Review}
+\section{Structuur}
+% Structuur van het document
+Je document is naar mijn mening mooi gestructureerd. De hoofdstukken zijn logisch verdeeld.
+Ik heb geen tips voor je documentstructuur.
+
+\section{Inhoud}
+% Inhoudelijk
+Je beschrijft je gemaakte keuzes goed en geeft genoeg informatie, waardoor het voor mij gemakkelijk is om te volgen.
+Wel denk ik dat je verantwoordingen bij bepaalde keuzes nog sterker gemaakt kunnen worden bij het toevoegen van bronnen. 
+Ook kan het helpen om toe te lichten waarom je wel of niet voor bepaalde alternatieven hebt gekozen.
+\par\smallskip
+Door te onderbouwen waarom je wel of niet hebt gekozen om bepaalde alternatieven te vergelijken, kun je beter voldoen aan 'Samenwerkend' in de Gilde Rubriek\cite{rubriek}.
+Hier staat namelijk "De gemaakte keuzes zijn goed beargumenteerd, bevatten vergelijkingen met alternatieven, criteria die bepalend zijn geweest om te komen tot een gewogen afweging en argumenten waarom (bijna gelijkwaardige mogelijkheden) toch niet gekozen zijn.".
+Door te beargumenteren waarom alternatieven wel of niet gekozen zijn, maak je je verantwoording sterker.
+\par\smallskip
+In de samengevatte tips, in hoofdstuk \ref{tips}, heb ik een lijst met concrete verbeterpunten staan.
+Dit zijn dingen die ik, op basis van de rubriek, nog zou toevoegen of veranderen.
+
+\section{Taal en Spelling}
+%Taalgebruik en spelling
+Je taalgebruik en spelling zien er goed uit. Je document las gemakkelijk en je zinnen zijn logisch opgebouwd.
+Ik heb slechts 1 spelfout ontdekt. In hoofdstuk 2.1, in de zin "Er waren een aantal andere opties waar we ook over nagedacht hadden, maar niet voor ons doel een fijn uitkomst zou geven.", moet "fijn" "fijne" zijn.
+Het woord "uitkomst" is namelijk een 'de' woord. In het Nederlands krijgt een bijvoeglijk naamwoord meestal een "e" aan het einde als het voor een de-woord staat. Dus de juiste zin zou zijn "een fijne uitkomst." 
+\par\smallskip
+Verder heb ik zelf geen taal of spellingsfouten gevonden.
+
+\chapter{Samengevatte Review}
+\section{Concrete Tops}
+
+\begin{enumerate}
+  \item Je documentstructuur is mooi en logisch. 
+  \item Het document is mooi opgemaakt.
+  \item Je taalgebruik is duidelijk en net.
+  \item Je onderbouwd veel keuzes en licht deze toe.
+\end{enumerate}
+
+\section{Concrete Tips}
+\label{tips}
+Ik zou de volgende punten aanraden, om je keuze verantwoordingen nog sterker te maken.
+\begin{enumerate}
+  \item In tabel 1 vertel je dat Telegram te weinig populariteit heeft. Dit wordt verder niet onderbouwd. 
+  \item In hoofdstuk 2.4 zeg je dat Google Drive geen goed keuze was, omdat deze geld kost. Google Drive biedt echter 15GB aan opslag bij hun gratis model\cite{gdrivePricing}. Was dit niet genoeg voor het project, of waren er mogelijk aanvullende redenen? 
+  \item In hoofdstuk 2.4 heb je alleen Google Drive en OneDrive vergeleken. Was er een reden waarom je andere diensten, zoals Dropbox, niet hebt vergeleken? 
+  \item In hoofdstuk 2.6 zeg je dat een van de belangrijkste redenen voor het kiezen van java is dat het team hiermee bekend is, maar naast dat Sceptr zelf java gebruikt zie ik geen andere redenen. Als er meer zijn, zou ik deze nog vermelden. Dit maakt je verantwoording denk ik beter.
+  \item In hoofdstuk 3.1 staat er dat tabel 2 de beste keuzes heeft, maar er worden geen redenen gegeven voor waarom dit de beste keuzes zijn. Waarom heb je bijvoorbeeld niet gekozen om andere IDE's te vergelijken?
+  \item In tabel 2 noem je Visual Studio Code lightweight. Hierbij zou een bron heel mooi zijn. Je zou hier bijvoorbeeld kunnen laten zien dat de totale opslag van Visual Studio Code kleiner is dan dat van de andere alternatieven, of een bron wat de snelheden vergelijkt van de IDE's.
+  \item In hoofdstuk 2.1 moet het woord "fijn" "fijne" zijn. Dit is in de zin "Er waren een aantal andere opties waar we ook over nagedacht hadden, maar niet voor ons doel een fijn uitkomst zou geven.".
+\end{enumerate}
+
+\section{Conclusie}
+Al met al heb je een mooi document, wat er al erg uitgebreid en verzorgd uit ziet. 
+Door het onderbouwen van alternatieven, en waarom je wel of niet hebt gekozen uit andere alternatieven, denk ik dat je je document nog beter kan maken. 
+
+
+\chapter{Bibliografie}
+% \nocite{*} % This includes all entries from the .bib file, even if they're not cited in the document
+\begingroup
+\renewcommand{\chapter}[2]{} % Removes the 'Chapter' heading
+\renewcommand{\addcontentsline}[3]{} % Prevents adding this specific entry to TOC
+\bibliographystyle{ieeetr}
+\bibliography{bronnen}
+\endgroup
+
+% \chapter{Bijlagen}
+% \textit{Ruimte voor peer reviews}
+
+\end{document}

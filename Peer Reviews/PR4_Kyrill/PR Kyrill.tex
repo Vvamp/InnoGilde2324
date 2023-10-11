@@ -1,0 +1,237 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{report}
+%\usepackage[date=short,backend=biber]{apa}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage[dutch]{babel}
+\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{helvet}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{pgf-pie}  
+\usepackage{float}
+\usepackage{pgfplots}
+% Styling
+\pagestyle{fancy}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\fancyhf{}
+\fancyhead[L]{Reviewer: Vincent van Setten }
+\fancyhead[R]{Beoordeelde: Kyrill Westdorp}
+\fancyhead[C]{Peer Review}
+\fancyfoot[R]{\thepage}
+
+\titleformat{\chapter}[hang]
+{\normalfont\huge\bfseries}{\thechapter.}{10pt}{\huge}
+\titlespacing{\chapter}{0pt}{-30pt}{20pt}
+
+\setlength{\parindent}{0.2em}
+
+\textwidth=400pt
+\geometry{
+    left=25mm
+}
+
+\renewcommand{\contentsname}{Inhoudsopgave}
+
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% Commands
+\newcommand{\teambox}{
+  \begin{tcolorbox}[hbox, colback=blue!5!white,colframe=blue!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Team Keuze
+  \end{tcolorbox}
+}
+
+\newcommand{\personalbox}{
+  \begin{tcolorbox}[hbox, colback=green!5!white,colframe=green!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Persoonlijke Keuze
+  \end{tcolorbox}
+}
+\newcommand{\teamchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\teambox}}}
+}
+
+\newcommand{\personalchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\personalbox}}}
+}
+
+\newcommand{\timestamp}[1]{
+  \mbox{\scriptsize \textbf{Datum:} #1} \smallbreak
+}
+
+% Document
+\begin{document}
+
+
+% Title Page
+\begin{titlepage}
+  \begin{center}
+      \vspace*{.9cm}
+      \Huge
+      \textbf{ Peer Review }\\
+      \vspace{0.2cm}
+      \small \textbf{Datum:} \today \\
+      \small TI Gilde, Groep D \\
+
+      \vspace{2cm}
+      \normalsize
+      \vspace{1cm}
+      \Large
+      \textbf{In opdracht van}\\
+      \large
+      \textbf{Hogeschool Utrecht} \\
+      \includegraphics[width=0.2\textwidth]{Images/logouni.png}
+      \vfill
+
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Reviewer}\\
+        \normalsize
+        \textbf{Student:} Vincent van Setten \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} FairPhone (499) \\
+        \vspace{2cm}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Beoordeelde}\\
+        \normalsize
+        \textbf{Student} Kyrill Westdorp  \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} FairPhone (498) \\
+        \textbf{Document Versie:} 2.0 \\
+        \vspace{2cm}
+      \end{minipage}
+    \end{center}
+\end{titlepage}
+
+
+\tableofcontents
+
+\chapter{Inleiding}
+Dit document bevat mijn peer review van het verantwoordingsdocument geschreven door Kyrill Westdorp, die betrokken is bij het project "FairPhone". 
+Het primaire doel van deze review is om een constructieve analyse te bieden die verder gaat dan alleen een algemene indruk. 
+Ik zal kijken naar zowel de technische als conceptuele aspecten van het document. Ook zal ik suggesties en potentiële feedback bieden op het project als geheel, wanneer dit naar mijn mening noodzakelijk is.
+\par \smallskip
+In lijn met de beoordelingscriteria zal mijn focus niet alleen liggen op de grammatica en spelling van het document, maar zal ik ook kritisch kijken naar de helderheid, consistentie en volledigheid van de inhoud.
+Hiermee hoop ik de kwaliteit van het document, en mogelijk ook het project, te verbeteren.
+
+
+\chapter{Gedetailleerde Review}
+\section{Structuur}
+% Structuur van het document
+Het document is mooi gestructureerd en bevat logische hoofdstukken.
+Ook is het opsplitsen van persoonlijke- en teamkeuzes onder aparte hoofdstukken super mooi.
+Ik kan zo gemakkelijk zoeken naar een bepaalde keuze en ik weet zo in één keer wat voor keuze het is.
+\par\smallskip 
+Als ik iets zou veranderen, zou ik nog timestamps toevoegen in je document.
+Hiermee kun je laten zien wanneer bepaalde keuzes zijn gemaakt en wanneer deze, wanneer nodig, aangepast zijn.
+Het kan bijvoorbeeld gebeuren dat je gedurende het project verandert van keuze. 
+Door timestamps toe te voegen wanneer je een keuze uitbreidt of verandert, kun je een verloop zien in het keuze-proces. 
+Zo hoef je ook je oude keuze niet te vervangen of te verwijderen, maar er alleen aan toe te voegen. 
+\par\smallskip 
+Je gebruikt in je eerste tabel kleuren, wat het super duidelijk maakt. In je andere tabellen zou je dit misschien ook kunnen toepassen.
+\section{Inhoud}
+% Inhoudelijk
+Je beschrijft je keuzes uitgebreid, laat alternatieven zien en licht toe waarom je een bepaalde keuze hebt gemaakt.
+Het is voor mij gemakkelijk te volgen wat het project inhoudt en welke keuzes je hebt gemaakt.
+Je gebruik van tabellen, en zeker je eerste tabel in je display keuze, is super overzichtelijk en duidelijk.
+\par\smallskip
+Wel zijn er voor mij een aantal dingen die je nog mooier zou kunnen doen. 
+Het grootste punt is dat je wel alternatieven laat zien, maar je beschrijft niet altijd waarom je bepaalde alternatieven wel of niet hebt meegenomen in je keuze proces.
+Door deze alternatieven verder te onderbouwen, voldoe je waarschijnlijk beter aan het "samenwerkend" kopje in de rubriek\cite{rubriek}.
+\par\smallskip 
+Ook laat je in het eerste hoofdstuk zien dat er bepaalde eisen zijn aan je display. Je zegt dat dit niet vanuit de opdrachtgever komt, maar je licht niet toe waar deze eisen dan wel vandaan komen.
+
+\section{Taal en Spelling}
+%Taalgebruik en spelling
+Je taalgebruik en spelling zien er goed uit. Je document is makkelijk te volgen en is duidelijk leesbaar.
+\par\smallskip 
+Je zou nog kunnen kijken of je bepaalde zinnen wat kan opbreken met komma's. 
+Je zou bijvoorbeeld de zin "Fysiek een scrumboard bijhouden zou kunnen alleen kan je dan niet gemakkelijk ten alle tijden het board inzien." kunnen opbreken op deze manier: "Fysiek een scrumboard bijhouden zou
+kunnen, alleen kan je dan niet gemakkelijk ten alle tijden het board inzien.".
+\par\smallskip 
+Daarnaast heb ik een enkele zin gezien, welke niet helemaal lekker klinkt. 
+In het scrumboard hoofdstuk staat er "Waarom zijn dit opties?". Volgensmij bedoel je hier "Waarom deze opties"?
+Verder is je taalgebruik helemaal goed.
+
+\chapter{Samengevatte Review}
+\section{Concrete Tops}
+
+\begin{enumerate}
+  \item Je tabellen zijn duidelijk en overzichtelijk. 
+  \item Het document is goed gestructureerd en makkelijk te volgen. 
+  \item Je taalgebruik is duidelijk en goed te volgen.
+\end{enumerate}
+
+\section{Concrete Tips}
+\begin{enumerate}
+  \item In je keuze van het display: hoe kom je aan de eisen? Waar komen deze vandaan?
+  \item Ook in de display keuze: waarom heb je gekozen om die displays te vergelijken en geen anderen?
+  \item In de git methodes keuze: waarom heb je niet gekozen voor andere methodes?
+  \item In het scrumboard keuze: waarom heb je niet gekozen voor andere scrumboard manieren?
+  \item Ook in de scrumboard keuze: zou je in deze tabel ook kleuren kunnen gebruiken?
+  \item In het scrumboard hoofdstuk staat er "Waarom zijn dit opties?". Volgensmij bedoel je hier "Waarom deze opties"?
+  \item Je zou nog kunnen kijken of je bepaalde zinnen wat kan opbreken met komma's. 
+
+\end{enumerate}
+
+\section{Conclusie}
+Je document is mooi en goed te volgen. Het gebruik van tabellen maken je keuzes duidelijk.
+Je zou nog verder kunnen toelichten waarom je niet hebt gekozen om andere alternatieven te vergelijken.
+
+\chapter{Bibliografie}
+% \nocite{*} % This includes all entries from the .bib file, even if they're not cited in the document
+\begingroup
+\renewcommand{\chapter}[2]{} % Removes the 'Chapter' heading
+\renewcommand{\addcontentsline}[3]{} % Prevents adding this specific entry to TOC
+\bibliographystyle{ieeetr}
+\bibliography{bronnen}
+\endgroup
+
+% \chapter{Bijlagen}
+% \textit{Ruimte voor peer reviews}
+
+\end{document}
