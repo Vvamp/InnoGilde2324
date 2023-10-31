@@ -27,7 +27,7 @@
 \usepackage{multicol}
 
 % Variables
-\newcommand{\latestVersion}{1.7}
+\newcommand{\latestVersion}{1.8}
 
 
 
@@ -139,18 +139,19 @@
 % Title Page
 \begin{titlepage}
   \begin{center}
-      \vspace*{.9cm}
+      \vspace*{.6cm}
       \Huge
       \textbf{ Verantwoordingsdocument }\\
       \vspace{0.2cm}
-      \small Team FairPhone
+      \small Vincent van Setten \\
+      \small Zeilvis Helden (Team FairPhone)
 
       \normalsize
 
 
-      \vspace{2cm}
-      \includegraphics[width=0.7\textwidth]{Images/fairphone.png}
-      \vspace{2cm}
+      \vspace{1cm}
+      \includegraphics[width=0.7\textwidth]{Images/zeilvis_helden.png}
+      \vspace{1cm}
       \Large\\
       \textbf{In opdracht van}\\
       \large
@@ -180,7 +181,9 @@
         \hline
         \textbf{Versie} & \textbf{Datum} & \textbf{Veranderingen}  \\
         \hline
-        \latestVersion   & 2023-10-11 & Peer reviews toegevoegd. Referenties ge-update. \\
+        \latestVersion   & 2023-10-31 & Feedback verwerkt: concrete keuzes kort apart vermelden, \\  & & versie nummers toegevoegd voor vergelijkingen \\
+        \hline
+        1.7   & 2023-10-11 & Peer reviews toegevoegd. Referenties ge-update. \\
         \hline
         1.6    & 2023-10-09 & Feedback verwerkt, OS keuze toegelicht, Container Software keuze toegevoegd \\
         \hline
@@ -234,8 +237,12 @@ Er zijn een aantal grote IDE's die wij kunnen gebruiken voor dit project, welke 
   \item \href{https://codelite.org/}{CodeLite} - Dit is een bekend open-source IDE, gemaakt voor meerdere programmeertalen.
 \end{enumerate}
 
-
 \subsubsection{Keuze}
+\timestamp{2023-09-05}
+Ik kies voor het gebruik van Visual Studio Code.
+
+
+\subsubsection{Keuze Toelichting}
 \timestamp{2023-09-05}
 Voor de IDE heb ik gekozen voor Visual Studio Code. Officieel is het geen IDE, maar het wordt veelal wel gebruikt als een IDE. 
 Door de vele extensies en aanpasbaarheid, kan deze editor volledig naar wens ingesteld worden. 
@@ -251,14 +258,17 @@ De mogelijkheden voor dit project zijn keuzes uit verschillende 64-bit Linux dis
 
 We hebben de volgende distributies vergeleken. De redenen voor de keuze van deze specifieke distributies staan hieronder verder toegelicht.
 \begin{enumerate}
-  \item \href{https://archlinux.org/}{Arch Linux}
-  \item \href{https://ubuntu.com/}{Ubuntu}
-  \item \href{https://www.debian.org/}{Debian}
-  \item \href{https://manjaro.org/}{Manjaro}
+  \item \href{https://archlinux.org/}{Arch Linux (2023.09.01)}
+  \item \href{https://ubuntu.com/}{Ubuntu (23.04)}
+  \item \href{https://www.debian.org/}{Debian (12.2.0)}
+  \item \href{https://manjaro.org/}{Manjaro (Plasma 2023.09.19)}
 \end{enumerate}
 
-
 \subsubsection{Keuze}
+\timestamp{2023-09-05}
+Ik kies voor Arch Linux als mijn besturingssysteem.
+
+\subsubsection{Keuze Toelichting}
 \timestamp{2023-09-05}
 Als team hebben we gekozen om Ubuntu te gebruiken als besturingssysteem voor onze laptops. 
 Dit hebben we gedaan om de volgende twee redenen.
@@ -378,6 +388,10 @@ Hieruit komt dat native sneller is dan zowel Docker als (K)VM's.
 
 \subsubsection{Keuze}
 \timestamp{2023-09-05}
+Ik kies er voor om Linux native te runnen.
+
+\subsubsection{Keuze Toelichting}
+\timestamp{2023-09-05}
 Ik heb gekozen om het simpelweg native te runnen, omdat dit voor mij de meeste voordelen heeft.
 Hoewel het snelheidsverschil tussen een VM en native niet verschrikkelijk is, voegt een VM wel onnodige overhead toe. 
 Ik had al een native Linux installatie, dus ik had geen reden om over te stappen op een VM. 
@@ -408,15 +422,15 @@ De overweging elke optie binnen de lijst staat genoteerd aan de rechterzijde van
     \hline
     \textbf{Platform} & \textbf{Overweging} \\
     \hline
-    \href{https://discord.com/}{Discord} & Discord werd overwogen vanwege de mogelijkheden georganiseerde kanalen binnen een groep. Ook had onze opdrachtgever hier een sterke voorkeur voor. \\
+    \href{https://discord.com/}{Discord (Stable 241602 (86f279e))} & Discord werd overwogen vanwege de mogelijkheden georganiseerde kanalen binnen een groep. Ook had onze opdrachtgever hier een sterke voorkeur voor. \\
     \hline
-    \href{https://www.whatsapp.com/}{WhatsApp} & WhatsApp was een optie vanwege de voorkeuren binnen het team. \\
+    \href{https://www.whatsapp.com/}{WhatsApp (2.23.20.79)} & WhatsApp was een optie vanwege de voorkeuren binnen het team. \\
     \hline
-    \href{https://www.microsoft.com/en-us/microsoft-teams/group-chat-software}{Microsoft Teams} & Microsoft Teams stond op de lijst vanwege de integraties met andere Microsoft producten, zoals Word, en de voorkeur van onze Gilde meester. \\
+    \href{https://www.microsoft.com/en-us/microsoft-teams/group-chat-software}{Microsoft Teams (23272.2708.2452.9689)} & Microsoft Teams stond op de lijst vanwege de integraties met andere Microsoft producten, zoals Word, en de voorkeur van onze Gilde meester. \\
     \hline
-    \href{https://slack.com/}{Slack} & Slack werd overwogen vanwege het gebruik van deze software binnen een ander project en het hierbij erg rijk was een opties en organisatie \\
+    \href{https://slack.com/}{Slack (4.35.121)} & Slack werd overwogen vanwege het gebruik van deze software binnen een ander project en het hierbij erg rijk was een opties en organisatie \\
     \hline
-    \href{https://telegram.org/}{Telegram} & Telegram was een optie vanwege de populariteit en de mogelijkheid om bestanden te delen. \\
+    \href{https://telegram.org/}{Telegram (4.10.3-3)} & Telegram was een optie vanwege de populariteit en de mogelijkheid om bestanden te delen. \\
     \hline
   \end{tabular}
   \caption{Overwegingen voor Communicatieplatforms}
@@ -430,6 +444,15 @@ Beide zijn goede opties met vergelijkbare features. De reden dat we hebben gekoz
 Doordat deze opties zo populair zijn, hadden onze teamleden hier al accounts op en waren we al bekwaam in het gebruik van deze services.
 
 \subsubsection{Keuze}
+\timestamp{2023-09-05}
+Wij kiezen voor het gebruik van:
+\begin{enumerate}
+  \item Discord (Met de opdrachtgever)
+  \item Whatsapp (Binnen het team)
+  \item OneDrive (Bestandsopslag)
+\end{enumerate}
+
+\subsubsection{Keuze Toelichting}
 \timestamp{2023-09-05}
 Om onze keuze te maken, hebben we voor- en nadelen tegenover elkaar gezet voor elk platform in de volgende tabel.
 \begin{table}[H]
@@ -476,6 +499,10 @@ We vermoeden dat dit komt door overblijvende build files die naar allemaal onbek
 
 \subsubsection{Keuze}
 \timestamp{2023-09-20}
+Wij kiezen voor het wel gebruiken van Docker.
+
+\subsubsection{Keuze Toelichting}
+\timestamp{2023-09-20}
 Met oog op overdraagbaarheid denken wij als team dat het een goede keuze is om een Docker environment op te gaan zetten. 
 Hiermee zou de build environment eenvoudig overdraagbaar zijn en zou het gemakkelijk werken op in principe elk systeem, zonder dat er build files overblijven na een compilatie.
 Dit zou ook tijd kunnen gaan schelen tijdens het debuggen~\cite{AffinityBridgeDockerProsCons}. 
@@ -508,6 +535,10 @@ Later besloten we de Docker image anders te structureren, wat ook de error met D
 Toch hebben we de keuze geboden aan elk teamlid om zelf te kiezen voor hun container software.
 
 \subsubsection{Keuze}
+\timestamp{2023-10-09}
+Ik kies voor het gebruik van Podman.
+
+\subsubsection{Keuze Toelichting}
 \timestamp{2023-10-09}
 Hoewel zowel Docker als Podman nu werken op mijn systeem, kies ik persoonlijk voor het gebruik van Podman.
 De grootste reden hiervoor is dat Podman werkt met rootless containers. Docker werkt door middel van een enkele Daemon die runt met root privileges. 
@@ -563,6 +594,18 @@ Podman is wel langzamer dan Docker, maar deze verschillen zijn praktisch gezien 
 \end{minipage}
 
 \includepdf[pages={5},scale=0.7,frame,pagecommand={}]{Appendices/Iteratie 2/PR Jasper.pdf}
+
+
+\subsection{Iteratie 3}
+\subsubsection{Joris Maas}
+\noindent
+\begin{minipage}{\textwidth}
+  \centering
+  \fbox{
+  \includegraphics[page=3,scale=0.7]{Appendices/Iteratie 3/PR Joris.pdf}}
+\end{minipage}
+
+\subsubsection{Remy de Bruijn}
 
 
 \section{Ontvangen Peer Reviews}

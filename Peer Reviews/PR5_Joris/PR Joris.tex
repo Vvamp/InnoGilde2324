@@ -1,0 +1,195 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{article}
+%\usepackage[date=short,backend=biber]{apa}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage[dutch]{babel}
+\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{helvet}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{pgf-pie}  
+\usepackage{float}
+\usepackage{pgfplots}
+% Styling
+\pagestyle{fancy}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\fancyhf{}
+\fancyhead[L]{Reviewer: Vincent van Setten }
+\fancyhead[R]{Beoordeelde: Joris Maas}
+\fancyhead[C]{Peer Review}
+\fancyfoot[R]{\thepage}
+
+\titleformat{\chapter}[hang]
+{\normalfont\huge\bfseries}{\thechapter.}{10pt}{\huge}
+\titlespacing{\chapter}{0pt}{-30pt}{20pt}
+
+\setlength{\parindent}{0.2em}
+
+\textwidth=400pt
+\geometry{
+    left=25mm
+}
+
+\renewcommand{\contentsname}{Inhoudsopgave}
+
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% Commands
+\newcommand{\teambox}{
+  \begin{tcolorbox}[hbox, colback=blue!5!white,colframe=blue!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Team Keuze
+  \end{tcolorbox}
+}
+
+\newcommand{\personalbox}{
+  \begin{tcolorbox}[hbox, colback=green!5!white,colframe=green!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Persoonlijke Keuze
+  \end{tcolorbox}
+}
+\newcommand{\teamchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\teambox}}}
+}
+
+\newcommand{\personalchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\personalbox}}}
+}
+
+\newcommand{\timestamp}[1]{
+  \mbox{\scriptsize \textbf{Datum:} #1} \smallbreak
+}
+
+% Document
+\begin{document}
+
+
+% Title Page
+\begin{titlepage}
+  \begin{center}
+      \vspace*{.9cm}
+      \Huge
+      \textbf{ Peer Review }\\
+      \vspace{0.2cm}
+      \small \textbf{Datum:} \today \\
+      \small TI Gilde, Groep D \\
+
+      \vspace{2cm}
+      \normalsize
+      \vspace{1cm}
+      \Large
+      \textbf{In opdracht van}\\
+      \large
+      \textbf{Hogeschool Utrecht} \\
+      \includegraphics[width=0.2\textwidth]{Images/logouni.png}
+      \vfill
+
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Reviewer}\\
+        \normalsize
+        \textbf{Student:} Vincent van Setten \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} FairPhone (499) \\
+        \vspace{2cm}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Beoordeelde}\\
+        \normalsize
+        \textbf{Student} Joris Maas  \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} LearnDiTwin (535) \\
+        \textbf{Document Versie:} 3.0 \\
+        \vspace{2cm}
+      \end{minipage}
+    \end{center}
+\end{titlepage}
+
+
+\tableofcontents
+\pagebreak
+\section{Inleiding}
+Dit document bevat mijn peer review van het verantwoordingsdocument geschreven door Joris Maas, die betrokken is bij het project "LearnDiTwin". 
+Het primaire doel van deze review is om een constructieve analyse te bieden die verder gaat dan alleen een algemene indruk. 
+Ik zal kijken naar zowel de technische als conceptuele aspecten van het document. Ook zal ik suggesties en potentiële feedback bieden op het project als geheel, wanneer dit naar mijn mening noodzakelijk is.
+\par \smallskip
+In lijn met de beoordelingscriteria zal mijn focus niet alleen liggen op de grammatica en spelling van het document, maar zal ik ook kritisch kijken naar de helderheid, consistentie en volledigheid van de inhoud.
+Hiermee hoop ik de kwaliteit van het document, en mogelijk ook het project, te verbeteren.
+
+
+\section{Review}
+\subsection{Structuur}
+% Structuur van het document
+je document ziet er nog goed uit en en is alleen maar verbeterd sinds de laatste keer dat ik deze gereviewd heb.
+De structuur ziet er goed uit. De enige twee punten die ik je mee kan geven zijn:
+\begin{enumerate}
+  \item In je versiebeheer staat alleen een versie met datum. Het zou fijn zijn als er ook staat wat er is verandert, zodat er bij het reviewen op de veranderingen gefocust kan worden. Zo kun je specifieker feedback krijgen.
+  \item Je bibliografie heeft geen bronnen, maar termen. Dit is dus een Woordenlijst/Glossarium. Een bibliografie is een lijst met bronnen. Ik zou dus de naam even aanpassen, om verwarring te voorkomen bij het zoeken naar bronnen.
+\end{enumerate}
+
+\subsection{Inhoud}
+% Inhoudelijk
+Ten eerste, super handig dat je versie nummers hebt gezet bij de opties die je hebt vergeleken. Ook is je gebruik van de plaatjes en tabellen mooi.
+Een punt wat ik zelf nog zou kunnen toevoegen is mogelijk wat bronnen, wat bij de rubriek op de \href{https://canvas.hu.nl/courses/39872/assignments/276343}{gilde pagina wordt genoemd}.
+Zo zou je bronnen kunnen toevoegen die laten zien welke features worden ondersteunt door de scrum frameworks(bijvoorbeeld de feature pagina van trello oid).
+\par \smallskip 
+In hoofdstuk 3.3 gebruik je een tabel voor de vergelijking van methodes voor het leren van java. Super mooi. Deze tabel zou je ook kunnen toepassen bij bepaalde andere keuzes, zoals document opslag en de scrum tools.
+
+\section{Conclusie}
+Het document is een hoop verbeterd sinds de vorige review van mij. Je keuzes zijn wat bij betreft duidelijk en zien er goed uit.
+
+% \chapter{Bibliografie}
+% % \nocite{*} % This includes all entries from the .bib file, even if they're not cited in the document
+% \begingroup
+% \renewcommand{\chapter}[2]{} % Removes the 'Chapter' heading
+% \renewcommand{\addcontentsline}[3]{} % Prevents adding this specific entry to TOC
+% \bibliographystyle{ieeetr}
+% \bibliography{bronnen}
+% \endgroup
+
+% \chapter{Bijlagen}
+% \textit{Ruimte voor peer reviews}
+
+\end{document}
