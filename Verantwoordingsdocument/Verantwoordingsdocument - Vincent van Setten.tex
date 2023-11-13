@@ -27,9 +27,11 @@
 \usepackage{multicol}
 
 % Variables
-\newcommand{\latestVersion}{1.9}
+\newcommand{\latestVersion}{2.0}
 
-
+\newcommand{\styledhref}[2]{%
+    \href{#1}{\textcolor{blue}{\underline{#2}}} % blue and underlined
+}
 
 
 % Double-page bibliography
@@ -181,6 +183,8 @@
         \hline
         \textbf{Versie} & \textbf{Datum} & \textbf{Veranderingen}  \\
         \hline
+        2.0   & 2023-11-13 & Feedback verwerkt (zie \ref{verwerktefeedback1}) \\
+        \hline
         1.9   & 2023-11-01 & Peer reviews toegevoegd \\
         \hline
         1.8   & 2023-10-31 & Feedback verwerkt: concrete keuzes kort apart vermelden, \\  & & versie nummers toegevoegd voor vergelijkingen \\
@@ -234,9 +238,9 @@ Zo kan elke IDE zijn eigen methodes hebben voor het gebruik en delen van instell
 \par\smallskip
 Er zijn een aantal grote IDE's die wij kunnen gebruiken voor dit project, welke wij hebben gekozen omdat we hier al eerder mee hebben gewerkt binnen de opleiding.
 \begin{enumerate}
-  \item \href{https://visualstudio.microsoft.com/}{Visual Studio} - Dit is een grote IDE met een breed scala aan features.
-  \item \href{https://code.visualstudio.com/}{Visual Studio Code} - Dit is officieel geen echte IDE, maar kan helemaal samengesteld worden naar jouw eigen beeld.
-  \item \href{https://codelite.org/}{CodeLite} - Dit is een bekend open-source IDE, gemaakt voor meerdere programmeertalen.
+  \item \styledhref{https://visualstudio.microsoft.com/}{Visual Studio} - Dit is een grote IDE met een breed scala aan features.
+  \item \styledhref{https://code.visualstudio.com/}{Visual Studio Code} - Dit is officieel geen echte IDE, maar kan helemaal samengesteld worden naar jouw eigen beeld.
+  \item \styledhref{https://codelite.org/}{CodeLite} - Dit is een bekend open-source IDE, gemaakt voor meerdere programmeertalen.
 \end{enumerate}
 
 \subsubsection{Keuze}
@@ -260,10 +264,10 @@ De mogelijkheden voor dit project zijn keuzes uit verschillende 64-bit Linux dis
 
 We hebben de volgende distributies vergeleken. De redenen voor de keuze van deze specifieke distributies staan hieronder verder toegelicht.
 \begin{enumerate}
-  \item \href{https://archlinux.org/}{Arch Linux (2023.09.01)}
-  \item \href{https://ubuntu.com/}{Ubuntu (23.04)}
-  \item \href{https://www.debian.org/}{Debian (12.2.0)}
-  \item \href{https://manjaro.org/}{Manjaro (Plasma 2023.09.19)}
+  \item \styledhref{https://archlinux.org/}{Arch Linux (2023.09.01)}
+  \item \styledhref{https://ubuntu.com/}{Ubuntu (23.04)}
+  \item \styledhref{https://www.debian.org/}{Debian (12.2.0)}
+  \item \styledhref{https://manjaro.org/}{Manjaro (Plasma 2023.09.19)}
 \end{enumerate}
 
 \subsubsection{Keuze}
@@ -308,10 +312,10 @@ Ook gebruik ik op deze manier zo min mogelijk opslag, wat erg handig is in ons p
 \par\smallskip
 Op basis van bovenstaande criteria ga ik de volgende distributies vergelijken. 
 \begin{enumerate}
-  \item Arch Linux, omdat ik deze distributie al gebruik.
-  \item Ubuntu, omdat deze gebruikt werd door het vorige team en wordt gebruikt door het team van SailfishOS~\cite{sailfishportingguide}.
-  \item Debian, omdat dit een populaire distributie is, waar Ubuntu op is gebaseerd. Dit biedt een minimalistischer alternatief om te testen.
-  \item Manjaro, omdat dit een gebruiksvriendelijke distributie is gebaseerd op Arch Linux. Deze wordt vaak aangeraden, naast Ubuntu.
+  \item Arch Linux (2023.09.01), omdat ik deze distributie al gebruik.
+  \item Ubuntu (23.04), omdat deze gebruikt werd door het vorige team en wordt gebruikt door het team van SailfishOS~\cite{sailfishportingguide}.
+  \item Debian (12.2.0), omdat dit een populaire distributie is, waar Ubuntu op is gebaseerd. Dit biedt een minimalistischer alternatief om te testen.
+  \item Manjaro (Plasma 2023.09.19) omdat dit een gebruiksvriendelijke distributie is gebaseerd op Arch Linux. Deze wordt vaak aangeraden, naast Ubuntu.
 \end{enumerate}
 
 In de volgende tabel vergelijk ik de criteria. Op basis van deze criteria maak ik een toegelichte keuze\footnote{De scores in deze tabel zijn gebaseerd op subjectieve en anekdotische ervaringen, en algemene consensus binnen de Linux-gemeenschap. Zo is het, bijvoorbeeld, algemeen geaccepteerd in de Linux-gemeenschap dat een basisinstallatie van Arch Linux minimalistischer is dan een standaard Ubuntu-installatie.}.
@@ -344,10 +348,10 @@ Dit komt doordat Arch Linux met minder packages wordt geleverd dan Ubuntu.
 Ook is Arch Linux de kleinste ISO, wat een goede indicatie is voor minimaliteit. 
 De groottes van de ISO bestanden zijn als volgt\footnote{Deze resultaten zijn van de laatste releases op 2023-09-10.}.
 \begin{itemize}
-  \item Arch Linux (2023.09.01): \href{https://archlinux.org/download/}{804.3MB}.
-  \item Ubuntu (23.04): \href{https://ubuntu.com/download/desktop}{4.6GB}.
-  \item Manjaro (Plasma 2023.09.19): \href{https://download.manjaro.org/kde/23.0.2/manjaro-kde-23.0.2-230919-linux65.iso}{3.6GB}.
-  \item Debian (12.2.0): \href{https://www.debian.org/distrib/netinst#smallcd}{628MB}.
+  \item Arch Linux (2023.09.01): \styledhref{https://archlinux.org/download/}{804.3MB}.
+  \item Ubuntu (23.04): \styledhref{https://ubuntu.com/download/desktop}{4.6GB}.
+  \item Manjaro (Plasma 2023.09.19): \styledhref{https://download.manjaro.org/kde/23.0.2/manjaro-kde-23.0.2-230919-linux65.iso}{3.6GB}.
+  \item Debian (12.2.0): \styledhref{https://www.debian.org/distrib/netinst\#smallcd}{628MB}.
 \end{itemize}
 
 \par\smallskip
@@ -424,15 +428,15 @@ De overweging elke optie binnen de lijst staat genoteerd aan de rechterzijde van
     \hline
     \textbf{Platform} & \textbf{Overweging} \\
     \hline
-    \href{https://discord.com/}{Discord (Stable 241602 (86f279e))} & Discord werd overwogen vanwege de mogelijkheden georganiseerde kanalen binnen een groep. Ook had onze opdrachtgever hier een sterke voorkeur voor. \\
+    \styledhref{https://discord.com/}{Discord (Stable 241602 (86f279e))} & Discord werd overwogen vanwege de mogelijkheden georganiseerde kanalen binnen een groep. Ook had onze opdrachtgever hier een sterke voorkeur voor. \\
     \hline
-    \href{https://www.whatsapp.com/}{WhatsApp (2.23.20.79)} & WhatsApp was een optie vanwege de voorkeuren binnen het team. \\
+    \styledhref{https://www.whatsapp.com/}{WhatsApp (2.23.20.79)} & WhatsApp was een optie vanwege de voorkeuren binnen het team. \\
     \hline
-    \href{https://www.microsoft.com/en-us/microsoft-teams/group-chat-software}{Microsoft Teams (23272.2708.2452.9689)} & Microsoft Teams stond op de lijst vanwege de integraties met andere Microsoft producten, zoals Word, en de voorkeur van onze Gilde meester. \\
+    \styledhref{https://www.microsoft.com/en-us/microsoft-teams/group-chat-software}{Microsoft Teams (23272.2708.2452.9689)} & Microsoft Teams stond op de lijst vanwege de integraties met andere Microsoft producten, zoals Word, en de voorkeur van onze Gilde meester. \\
     \hline
-    \href{https://slack.com/}{Slack (4.35.121)} & Slack werd overwogen vanwege het gebruik van deze software binnen een ander project en het hierbij erg rijk was een opties en organisatie \\
+    \styledhref{https://slack.com/}{Slack (4.35.121)} & Slack werd overwogen vanwege het gebruik van deze software binnen een ander project en het hierbij erg rijk was een opties en organisatie \\
     \hline
-    \href{https://telegram.org/}{Telegram (4.10.3-3)} & Telegram was een optie vanwege de populariteit en de mogelijkheid om bestanden te delen. \\
+    \styledhref{https://telegram.org/}{Telegram (4.10.3-3)} & Telegram was een optie vanwege de populariteit en de mogelijkheid om bestanden te delen. \\
     \hline
   \end{tabular}
   \caption{Overwegingen voor Communicatieplatforms}
@@ -463,15 +467,15 @@ Om onze keuze te maken, hebben we voor- en nadelen tegenover elkaar gezet voor e
     \hline
     \textbf{Platform} & \textbf{Voordelen} & \textbf{Nadelen} \\
     \hline
-    \href{https://discord.com/}{Discord} & Georganiseerde kanalen, hoge aanpasbaarheid, opdrachtgever gebruikt het al, bekendheid binnen het team. & Minder organisatie features dan alternatieven. \\
+    \styledhref{https://discord.com/}{Discord} & Georganiseerde kanalen, hoge aanpasbaarheid, opdrachtgever gebruikt het al, bekendheid binnen het team. & Minder organisatie features dan alternatieven. \\
     \hline
-    \href{https://www.whatsapp.com/}{WhatsApp} & Snel en eenvoudig, geen nieuwe installaties nodig binnen team. Sterke teamvoorkeur. & Beperkte bestandsgrootte voor delen, afhankelijk van telefoonnummer. Weinig organisatie-tools. \\
+    \styledhref{https://www.whatsapp.com/}{WhatsApp} & Snel en eenvoudig, geen nieuwe installaties nodig binnen team. Sterke teamvoorkeur. & Beperkte bestandsgrootte voor delen, afhankelijk van telefoonnummer. Weinig organisatie-tools. \\
     \hline
-    \href{https://www.microsoft.com/en-us/microsoft-teams/group-chat-software}{Microsoft Teams} & Goede integratie met Microsoft-producten, ondersteund door de Hogeschool. & Werkt niet goed op bepaalde Linux distributies. Niet open-source. Betaalde functies. \\
+    \styledhref{https://www.microsoft.com/en-us/microsoft-teams/group-chat-software}{Microsoft Teams} & Goede integratie met Microsoft-producten, ondersteund door de Hogeschool. & Werkt niet goed op bepaalde Linux distributies. Niet open-source. Betaalde functies. \\
     \hline
-    \href{https://slack.com/}{Slack} & Rijk aan functies, goede organisatie van kanalen, integraties met andere tools. & Betaalde functies voor volledige toegang, kan ingewikkeld zijn om op te zetten. \\
+    \styledhref{https://slack.com/}{Slack} & Rijk aan functies, goede organisatie van kanalen, integraties met andere tools. & Betaalde functies voor volledige toegang, kan ingewikkeld zijn om op te zetten. \\
     \hline
-    \href{https://telegram.org/}{Telegram} & Snel, mogelijkheid om grote bestanden te delen, cloud-gebaseerde opslag. & Minder populair in zakelijke context, weinig bekendheid binnen team \\
+    \styledhref{https://telegram.org/}{Telegram} & Snel, mogelijkheid om grote bestanden te delen, cloud-gebaseerde opslag. & Minder populair in zakelijke context, weinig bekendheid binnen team \\
     \hline
   \end{tabular}
   \caption{Voordelen en Nadelen van Communicatieplatforms}
@@ -489,7 +493,7 @@ Voor bestandsopslag gebruiken we OneDrive. Vanuit de Hogeschool Utrecht krijgen 
 Hier hebben we meer dan voldoende opslag voor bestanden. OneDrive integreert ook gemakkelijk met Microsoft Word. 
 Dat was voor ons reden genoeg om te kiezen voor OneDrive boven Google Drive.
 
-\teamchoice{Docker}
+\teamchoice{Wel of niet gebruik maken van Container Software}
 \label{sec:dockerchoice}
 \subsubsection{Context}
 \timestamp{2023-09-20}
@@ -498,38 +502,40 @@ Daarnaast is er een installatiescript aanwezig.
 Deze zouden moeten werken, maar hebben we dit tot nu toe nergens gemakkelijk werkend gekregen.
 Tijdens het debuggen gaat het steeds fout op verschillende punten. 
 We vermoeden dat dit komt door overblijvende build files die naar allemaal onbekende plekken in ons systeem worden geschreven, gebaseerd op eerdere ervaringen in eerdere projecten.
+Door gebruik te maken van Container Software kunnen we dit voorkomen, omdat hiermee elke keer dezelfde stappen automatisch uitgevoerd kunnen worden vanaf het begin.
 
 \subsubsection{Keuze}
 \timestamp{2023-09-20}
-Wij kiezen voor het wel gebruiken van Docker.
+Wij kiezen voor het wel gebruiken van Container Software.
 
 \subsubsection{Keuze Toelichting}
 \timestamp{2023-09-20}
-Met oog op overdraagbaarheid denken wij als team dat het een goede keuze is om een Docker environment op te gaan zetten. 
+Met oog op overdraagbaarheid denken wij als team dat het een goede keuze is om een Container environment op te gaan zetten. 
 Hiermee zou de build environment eenvoudig overdraagbaar zijn en zou het gemakkelijk werken op in principe elk systeem, zonder dat er build files overblijven na een compilatie.
 Dit zou ook tijd kunnen gaan schelen tijdens het debuggen~\cite{AffinityBridgeDockerProsCons}. 
 \par\smallskip
 Deze keuze staat tegenover een keuze gemaakt door een voorgaand ontwikkelingsteam binnen het Fairphone project. 
-Dit team koos er voor om niet verder te gaan met Docker, omdat dit vrij lastig bleek en er tegen problemen werd gelopen.
+Het vorige team koos er voor om niet verder te gaan met container, omdat dit vrij lastig bleek en er tegen problemen werd gelopen. 
+Zo liepen zij onder andere tegen problemen aan met permissions.
 Wij geloven dat het waardevol is om toch hiermee verder te gaan, omdat dit de overdraagbaarheid enorm vergroot. Wij denken dat deze problemen niet onoverkomelijk zijn.
 Hoewel het ons nu meer tijd zal kosten om dit op te zetten, zal dit een potentieel toekomstig ontwikkelingsteam enorm veel tijd schelen.
-Wij hebben tijdens scrum poker 20 manuren geschat voor de opzet van Docker. Hoewel dat waarschijnlijk meer is dan het zou kosten om de build environment nu op te lossen, schatten wij dat de build environment meer problemen zal veroorzaken op een later stadium. 
+Wij hebben tijdens scrum poker 20 manuren geschat voor de opzet van container. Hoewel dat waarschijnlijk meer is dan het zou kosten om de build environment nu op te lossen, schatten wij dat de build environment meer problemen zal veroorzaken op een later stadium. 
 Zo is het vorige team daar meerdere sprints mee bezig geweest en leek het steeds op andere punten fout te gaan.
 
 \par\smallskip
-De laatste reden voor het opzetten van de Docker omgeving, is omdat de opdrachtgever hier een sterke voorkeur voor had. Door het opzetten van een Docker omgeving, zal een toekomstig team geen weken meer bezig zijn om de build environment op te zetten. In plaats daarvan zal het minder dan een dagdeel moeten duren, namelijk het installeren van Docker en het runnen van de container.
+De laatste reden voor het opzetten van de container omgeving, is omdat de opdrachtgever hier een sterke voorkeur voor had. Door het opzetten van een container omgeving, zal een toekomstig team geen weken meer bezig zijn om de build environment op te zetten. In plaats daarvan zal het minder dan een dagdeel moeten duren, namelijk het installeren van de container software en het runnen van de container.
 
 \personalchoice{Container Software}
 \subsubsection{Context}
 \timestamp{2023-10-09}
 Zoals toegelicht in hoofdstuk \ref{sec:dockerchoice}, gaan we gebruik maken van software om de build environment deels te virtualiseren, zodat het eenvoudig werkt op elk systeem.
 Binnen ons team was Docker het meest bekend. We liepen tegen een aantal problemen aan met Docker op sommige systemen. 
-Hierdoor besloten we te kijken naar alternatieven. Deze hebben we gevonden. De alternatieven maken allemaal gebruik van het \href{https://opencontainers.org/}{\textit{Open Container Initiative}}.
+Hierdoor besloten we te kijken naar alternatieven. Deze hebben we gevonden. De alternatieven maken allemaal gebruik van het \styledhref{https://opencontainers.org/}{\textit{Open Container Initiative}}.
 Dit betekent dat we een Dockerfile ook zou moeten werken voor alternatieven die hiervan gebruik maken.
 \par\smallskip
 Docker had op een aantal computers errors, die zich op andere computers zich niet voordeden. 
 Omdat Docker gebaseerd is op het OpenContainer Initiative, wilden we kijken of het misschien wel werkte met een alternatief.
-Volgens \href{https://alternativeto.net/software/docker/}{AlternativeTo} is Podman het populairste alternatief.
+Volgens \styledhref{https://alternativeto.net/software/docker/}{AlternativeTo} is Podman het populairste alternatief.
 \par\smallskip
 Bij het testen van onze Docker image met Podman, bleken deze errors zich niet voor te doen.
 \par\smallskip 
@@ -543,7 +549,7 @@ Ik kies voor het gebruik van Podman.
 \subsubsection{Keuze Toelichting}
 \timestamp{2023-10-09}
 Hoewel zowel Docker als Podman nu werken op mijn systeem, kies ik persoonlijk voor het gebruik van Podman.
-De grootste reden hiervoor is dat Podman werkt met rootless containers. Docker werkt door middel van een enkele Daemon die runt met root privileges. 
+De grootste reden hiervoor is dat Podman werkt met rootless containers. Docker werkt door middel van een enkele Daemon\footnote{\styledhref{https://www.techtarget.com/whatis/definition/daemon}{Een service die op de achtergrond draait} } die runt met root privileges. 
 Alle Docker instanties praten vervolgens met deze enkele Daemon, wat vervolgens de taken uitvoert. Doordat de Daemon root access heeft, kan dit security risico's met zich meebrengen als deze niet goed gebruikt wordt\cite{dockerdaemonrisks}.
 Podman is wel langzamer dan Docker, maar deze verschillen zijn praktisch gezien vrij insignificant\cite{dockerperformance}.
 
@@ -723,4 +729,15 @@ En de volgende top:
   \includegraphics[page=1,scale=0.7]{Appendices/Iteratie 3/Review voor Vincent van Setten van Jasper Middendorp.pdf}}
 \end{minipage}
 
+\pagebreak
+\subsection{Verwerkte Feedback}
+\subsubsection{Iteratie 3 feedback}
+\label{verwerktefeedback1}
+De volgende feedback heb ik verwerkt in iteratie 4 n.a.v. de ontvangen feedback van iteratie 3.
+\begin{enumerate}
+  \item Versie nummers van vergeleken OS's toegevoegd in de 'Laptop OS' keuze(4.2).
+  \item Docker keuze(4.5) aangepast: de naam docker vervangen met 'Container (software)', omdat de keuze generieker was bedoeld.
+  \item Definitie van 'Daemon' toegevoegd als footnote in hoofdstuk 4.6.
+  \item Alle externe links duidelijk gemaakt in het gehele document(nu aangegeven met blauwe tekstkleur en een underline).
+\end{enumerate}
 \end{document}
