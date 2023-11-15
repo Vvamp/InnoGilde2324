@@ -1,0 +1,193 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{article}
+%\usepackage[date=short,backend=biber]{apa}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage[dutch]{babel}
+\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{helvet}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{pgf-pie}  
+\usepackage{float}
+\usepackage{pgfplots}
+% Styling
+\pagestyle{fancy}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\fancyhf{}
+\fancyhead[L]{Reviewer: Vincent van Setten }
+\fancyhead[R]{Beoordeelde: Kyrill Westdorp}
+\fancyhead[C]{Peer Review}
+\fancyfoot[R]{\thepage}
+
+\titleformat{\chapter}[hang]
+{\normalfont\huge\bfseries}{\thechapter.}{10pt}{\huge}
+\titlespacing{\chapter}{0pt}{-30pt}{20pt}
+
+\setlength{\parindent}{0.2em}
+
+\textwidth=400pt
+\geometry{
+    left=25mm
+}
+
+\renewcommand{\contentsname}{Inhoudsopgave}
+
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% Commands
+\newcommand{\teambox}{
+  \begin{tcolorbox}[hbox, colback=blue!5!white,colframe=blue!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Team Keuze
+  \end{tcolorbox}
+}
+
+\newcommand{\personalbox}{
+  \begin{tcolorbox}[hbox, colback=green!5!white,colframe=green!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Persoonlijke Keuze
+  \end{tcolorbox}
+}
+\newcommand{\teamchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\teambox}}}
+}
+
+\newcommand{\personalchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\personalbox}}}
+}
+
+\newcommand{\timestamp}[1]{
+  \mbox{\scriptsize \textbf{Datum:} #1} \smallbreak
+}
+
+% Document
+\begin{document}
+
+
+% Title Page
+\begin{titlepage}
+  \begin{center}
+      \vspace*{.9cm}
+      \Huge
+      \textbf{ Peer Review }\\
+      \vspace{0.2cm}
+      \small \textbf{Datum:} \today \\
+      \small TI Gilde, Groep D \\
+
+      \vspace{2cm}
+      \normalsize
+      \vspace{1cm}
+      \Large
+      \textbf{In opdracht van}\\
+      \large
+      \textbf{Hogeschool Utrecht} \\
+      \includegraphics[width=0.2\textwidth]{Images/logouni.png}
+      \vfill
+
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Reviewer}\\
+        \normalsize
+        \textbf{Student:} Vincent van Setten \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} FairPhone (499) \\
+        \vspace{2cm}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Beoordeelde}\\
+        \normalsize
+        \textbf{Student} Kyrill Westdorp  \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} FairPhone (498) \\
+        \textbf{Document Versie:} 4 \\
+        \vspace{2cm}
+      \end{minipage}
+    \end{center}
+\end{titlepage}
+
+
+\tableofcontents
+\clearpage
+
+\section{Inleiding}
+Dit document bevat mijn peer review van het verantwoordingsdocument geschreven door Kyrill Westdorp, die betrokken is bij het project "FairPhone". 
+Het primaire doel van deze review is om een constructieve analyse te bieden die verder gaat dan alleen een algemene indruk. 
+Ik zal kijken naar zowel de technische als conceptuele aspecten van het document. Ook zal ik suggesties en potentiële feedback bieden op het project als geheel, wanneer dit naar mijn mening noodzakelijk is.
+\par \smallskip
+In lijn met de beoordelingscriteria zal mijn focus niet alleen liggen op de grammatica en spelling van het document, maar zal ik ook kritisch kijken naar de helderheid, consistentie en volledigheid van de inhoud.
+Hiermee hoop ik de kwaliteit van het document, en mogelijk ook het project, te verbeteren.
+
+
+
+\section{Gedetailleerde Review}
+\subsection{Structuur}
+Je gebruik van tabellen is duidelijk en mooi. Je keuzes zijn goed gestructureerd en je document is gemakkelijk te doorzoeken.
+\par\smallskip 
+Mijn enige tips qua structuur ligt binnen je Code Style keuze.
+Figuur 1 ligt tegen de rand van de pagina aan, wat niet de pagina margins respecteert. Je zou de figuur wat kleiner kunnen maken, zodat hij beter in de pagina ligt.
+De tabel binnen de Code Style keuze is ook erg breed. Hoewel je deze feedback vaker hebt gekregen en hieruit is gekomen dat het lastig is anders vorm te geven, wilde ik het toch nog even noemen.
+Er zijn naar mijn mening nog een paar opties die je zou kunnen overwegen voor deze tabel.
+\begin{enumerate}
+  \item Je zou kunnen overwegen de tabel op te splitsen op de kolommen in 2 tabellen(al wordt de pagina hierdoor langer en de tabel mogelijk minder leesbaar).
+  \item Identieke kolommen 'mergen'(LLVM en Google hebben in de tabel dezelfde features bijvoorbeeld).
+  \item De tabel als 'Bijlage' toevoegen, in plaats van binnen de keuze plaatsen. Hiermee hou je je keuze schoon. Het nadeel is dat je hiervoor dus naar de vergelijking zou moeten zoeken.
+  \item Je zou vooraf een aantal keuzes nog kunnen 'filteren' op basis van eisen, om hiermee alleen in de tabel de echt relevante styles te behouden.
+\end{enumerate}
+
+
+
+\subsection{Inhoud}
+Je gebruikt bronnen, gekleurde tabellen, onderbouwt je keuzes, hebt alternatieven en onderbouwt deze alternatieven.
+Wat dat betreft heb ik erg weinig aan te merken op je document.
+Je zou je criteria/eisen nog iets kunnen aanscherpen door toe te lichten waarom deze belangrijk zijn en/of ze te prioriteren. 
+Het zou bijvoorbeeld kan dat een alternatief namelijk beter is dan een ander(omdat deze een belangrijke eis het best vervult), maar niet voldoet aan een andere (minder belangrijke) eis.
+
+
+
+\section{Conclusie}
+Je document is echt super mooi. Je keuzes zijn onderbouwd, je tabellen zijn duidelijk en overzichtelijk. Ik heb echt vrij weinig op te merken over je document.
+
+
+\end{document}

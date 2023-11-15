@@ -1,0 +1,198 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{article}
+%\usepackage[date=short,backend=biber]{apa}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage[dutch]{babel}
+\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{helvet}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{pgf-pie}  
+\usepackage{float}
+\usepackage{pgfplots}
+% Styling
+\pagestyle{fancy}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\fancyhf{}
+\fancyhead[L]{Reviewer: Vincent van Setten }
+\fancyhead[R]{Beoordeelde: Jasper Middendorp}
+\fancyhead[C]{Peer Review}
+\fancyfoot[R]{\thepage}
+
+\titleformat{\chapter}[hang]
+{\normalfont\huge\bfseries}{\thechapter.}{10pt}{\huge}
+\titlespacing{\chapter}{0pt}{-30pt}{20pt}
+
+\setlength{\parindent}{0.2em}
+
+\textwidth=400pt
+\geometry{
+    left=25mm
+}
+
+\renewcommand{\contentsname}{Inhoudsopgave}
+
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% Commands
+\newcommand{\teambox}{
+  \begin{tcolorbox}[hbox, colback=blue!5!white,colframe=blue!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Team Keuze
+  \end{tcolorbox}
+}
+
+\newcommand{\personalbox}{
+  \begin{tcolorbox}[hbox, colback=green!5!white,colframe=green!75!black,
+    left=.1mm, right=.1mm, top=.1mm, bottom=.1mm, fontupper=\scriptsize\sffamily]
+    Persoonlijke Keuze
+  \end{tcolorbox}
+}
+\newcommand{\teamchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\teambox}}}
+}
+
+\newcommand{\personalchoice}[1]{
+  \section[ #1 ]{#1~\mbox{\raisebox{-2.5pt}{\personalbox}}}
+}
+
+\newcommand{\timestamp}[1]{
+  \mbox{\scriptsize \textbf{Datum:} #1} \smallbreak
+}
+
+% Document
+\begin{document}
+
+
+% Title Page
+\begin{titlepage}
+  \begin{center}
+      \vspace*{.9cm}
+      \Huge
+      \textbf{ Peer Review }\\
+      \vspace{0.2cm}
+      \small \textbf{Datum:} \today \\
+      \small TI Gilde, Groep D \\
+
+      \vspace{2cm}
+      \normalsize
+      \vspace{1cm}
+      \Large
+      \textbf{In opdracht van}\\
+      \large
+      \textbf{Hogeschool Utrecht} \\
+      \includegraphics[width=0.2\textwidth]{Images/logouni.png}
+      \vfill
+
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Reviewer}\\
+        \normalsize
+        \textbf{Student:} Vincent van Setten \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} FairPhone (499) \\
+        \vspace{2cm}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.45\textwidth}
+        \large
+        \textbf{Beoordeelde}\\
+        \normalsize
+        \textbf{Student} Jasper Middendorp  \\
+        \textbf{Gilde:} TI Gilde, Groep D\\
+        \textbf{Innovation Team:} Sceptr (508) \\
+        \textbf{Document Versie:} 4 \\
+        \vspace{2cm}
+      \end{minipage}
+    \end{center}
+\end{titlepage}
+
+
+\tableofcontents
+\clearpage
+
+\section{Inleiding}
+Dit document bevat mijn peer review van het verantwoordingsdocument geschreven door Jasper Middendorp, die betrokken is bij het project "Sceptr". 
+Het primaire doel van deze review is om een constructieve analyse te bieden die verder gaat dan alleen een algemene indruk. 
+Ik zal kijken naar zowel de technische als conceptuele aspecten van het document. Ook zal ik suggesties en potentiële feedback bieden op het project als geheel, wanneer dit naar mijn mening noodzakelijk is.
+\par \smallskip
+In lijn met de beoordelingscriteria zal mijn focus niet alleen liggen op de grammatica en spelling van het document, maar zal ik ook kritisch kijken naar de helderheid, consistentie en volledigheid van de inhoud.
+Hiermee hoop ik de kwaliteit van het document, en mogelijk ook het project, te verbeteren.
+
+
+\section{Gedetailleerde Review}
+\subsection{Structuur}
+Je document is duidelijk gestructureerd en je gebruik van tabellen is mooi.
+De gemaakte keuzes zijn duidelijk door de markering in je tabellen.
+Soms heb je een page-break na een keuze en soms niet(na hoofdstuk 2.3 en middenin hoofdstuk 3.1 ), wat je nog consistent zou kunnen maken. Dit kan namelijk wat verwarrend zijn.
+Verder is je inhoudsopgave net langer dan een hele pagina. Dit kan gebeuren, maar als je het plaatje bij de inhoudsopgave weghaalt of kleiner maakt zou het wel op een hele pagina passen.
+Dat is denk ik wat netter en duidelijker.
+
+
+
+
+\subsection{Inhoud}
+Inhoudelijk zijn de meeste keuzes goed onderbouwd en duidelijk. Het gebruik van bronnen is mooi.
+Ik heb een aantal puntjes die je zou kunnen verbeteren.
+
+\begin{enumerate}
+  \item (H2.3 - Team Communicatie) Ik zou beschrijven hoe je aan de lijst van keuzes bent gekomen('onderbouwing van keuzes' in de rubriek).
+  \item (H3.1 - IDE) Hier beschrijf je dat je in 'tabel 6' voor elke programmeertaal de beste opties onder elkaar zet. Dit lijkt juist tabel 5, maar hier staan ze niet per taal onder elkaar. 
+  \item (H3.1 - IDE) Ook hier heb je een lijst met alternatieven, maar er staat niet beschreven waarom je geen andere opties hebt vergeleken en hoe je aan deze lijst komt. 
+  \item (H3.1 - IDE) Je beschrijft dat 1 IDE misschien niet genoeg zou zijn voor alle talen, maar hier refereer je niet meer naar in je keuze verantwoording.
+  \item (Tabel 6) Deze tabel lijkt niet ingevuld te zijn. Het kan zijn dat dit aan mij ligt, of dat je dit bent vergeten.
+  \item (H2.6 - Programmeertaal) Hier beschrijf je dat je als frontend ReactJS/NextJS gaat gebruiken icm typescript. In hoofdstuk 3.1 wordt echter niet beschreven welke IDE je hier voor gaat gebruiken. Dit zou je hier nog kunnen toelichten.
+\end{enumerate}
+% - Je mist ook nog de verantwoording van hoe je aan de lijst met programma's bent gekomen in 2.3 (team communicatie).
+% - In IDE beschrijf je dat je in 'tabel 6' voor elke programmeertaal de beste opties onder elkaar zet. Dit lijkt juist tabel 5, maar hier staan ze niet per taal onder elkaar. 
+% - In IDE heb je een lijst met alternatieven, maar er staat niet beschreven waarom je niet andere opties hebt vergeleken en hoe je aan deze lijst komt. 
+% - In 2.6 programmeertaal beschrijf je daat je als frontend reactjs/nextjs icm typescript gaat gebruiken. Welke IDE ga je hiervoor gebruiken? Dit zou je verder kunnen toelichten in hoofdstuk 3.1(IDE)
+% - Tabel 6: Tabel heeft geen inhoud. Lijkt alsof dat wel de bedoeling was, maar zie het zelf niet staan 
+% - In 3.1 beschrijf je dat 1 IDE misschien niet genoeg is, maar dit wordt hierna niet meer genoemd in de uiteindelijke keuze verantwoording.
+
+
+\section{Conclusie}
+Het document is duidelijker geworden sinds de vorige review. Je keuzes zijn wat bij betreft duidelijk en zien er goed uit.
+
+
+\end{document}
