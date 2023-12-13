@@ -191,6 +191,8 @@
         \hline
         \textbf{Versie} & \textbf{Datum} & \textbf{Veranderingen}  \\
         \hline
+        2.0   & 2023-12-13 & Iteratie 6 toegevoegd \\
+        \hline
         1.0   & 2023-11-29 & Eerste Versie \\
         \hline
 
@@ -340,7 +342,7 @@ Dit wilden we graag verbeteren door de documentatie aan te passen.
       \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
       \hline
       Werkende SailfishOS Image produceren & 
-      \begin{enumerate}[topsep=0pt]
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
         \item Er is een image gebouwd.
         \item De telefoon start op met de image.
         \item De telefoon werkt naar behoren met de image.
@@ -402,7 +404,7 @@ Dit wilden we graag verbeteren door de documentatie aan te passen.
         \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
         \hline
         Update stappen, gevonden door Franky, testen &
-          \begin{enumerate}
+          \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
           \item Er is een SailfishOS image gebouwd met daarmee de stappen van Franky's oplossing geïmplementeerd.  
           \item Er is gekeken bij systeem informatie of er na de installatie een nieuwe versie van SailfishOS is geïnstalleerd.
           \end{enumerate} \\
@@ -460,7 +462,7 @@ Dit wilden we graag verbeteren door de documentatie aan te passen.
       Testen of aanpassingen in de installer van de boot image te zien zijn & Er is geconstateerd of de veranderingen die in de boot image source code zijn aangepast ook te zien zijn. \\ 
       \hline 
       Flashen via een sd kaart ipv usb &
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
         \item Er is geprobeerd te flashen via TWRP door middel van een SD kaart, in plaats van via usb.
         \item Er is vastgesteld of dit verschil maakt.
       \end{enumerate} \\
@@ -472,7 +474,7 @@ Dit wilden we graag verbeteren door de documentatie aan te passen.
       Uitzoeken waarom de ram disk in de boot image 0 bytes is & Er zijn concrete redenen gevonden waarom de telefoon potentieel bootloopt. \\ 
       \hline
       Testen of niet-fatale Make dependency errors de reden zijn van 0 bytes van de boot image & 
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
         \item De dependency errors tijdens het kernel make script zijn opgelost.
         \item Er is een nieuwe boot image gebouwd en geflashed.
         \item Er is vastgesteld of de telefoon nog steeds bootloopt.
@@ -522,19 +524,19 @@ Later heb ik ook de uiteindelijk fix geïmplementeerd.
     \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
     \hline
     Onderzoeken naar mogelijkheden om Waydroid op de telefoon te krijgen & 
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
         \item Er is een concrete manier gevonden om Waydroid te kunnen installeren op de Fairphone
       \end{enumerate}
     \\
     \hline
     Waydroid installeren op telefoon met sailfishOS:Chum & 
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
         \item De Waydroid applicatie is geïnstalleerd op de Fairphone.
       \end{enumerate}
     \\
     \hline
     Onderzoek doen naar binder nodes & 
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
         \item Er is duidelijk wat een binder node is en hoe deze samenwerken met Waydroid. 
         \item Er is een kort document dat een basisbegrip over binder nodes geeft voor de rest van het team.
       \end{enumerate}
@@ -565,14 +567,14 @@ Later heb ik ook de uiteindelijk fix geïmplementeerd.
       Uitzoeken wat connman is & Er is een begrip over wat connman is. \\ 
       \hline 
       Connman configuraties doorspitten & 
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
         \item De standaard configuraties zijn gelezen. 
         \item De configuraties gezet in SailfishOS zijn bekeken en vergeleken met de standaard configuraties.
         \item Verschillen zijn onderzocht.
       \end{enumerate} \\ 
       \hline
       Connman logs onderzoeken & 
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
         \item Er is gezocht naar errors in de connman logs.
         \item Potentiële errors zijn genoteerd. 
       \end{enumerate}\\
@@ -581,14 +583,14 @@ Later heb ik ook de uiteindelijk fix geïmplementeerd.
       Er is gekeken of er alsnog handmatig verbinding gemaakt kan worden met connmanctl. \\ 
       \hline
       Uitzoeken waarom we geen IP adres krijgen & 
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
         \item Er is gezocht naar wat er nodig is om een IP adres te krijgen in mobiele data.
         \item Er zijn concrete punten gevonden om verder te onderzoeken.
       \end{enumerate} \\
 
       \hline
       Ofono log viewer gebruiken om error connman verder uit te zoeken & 
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
         \item Ofono log viewer app is geinstalleerd.
         \item Connmanctl connect is gebruikt om geprobeerd te verbinden.
         \item Eventuele errors zijn genoteerd.
@@ -623,7 +625,7 @@ Later heb ik ook de uiteindelijk fix geïmplementeerd.
       Onderzoeken hoe we de package kunnen meebouwen via de build environment & Er is onderzocht hoe we de package moeten meebouwen, zodat deze in de sailfishos image komt te staan. \\ 
       \hline 
       Dummy\_netd installeren in de build environment & 
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
         \item Dummy\_netd is gedownload van de github mer\_hybris/dummy\_netd.
         \item De package is geïnstalleerd via zypper.
         \item Er is een nieuwe image gebouwd.
@@ -631,7 +633,7 @@ Later heb ik ook de uiteindelijk fix geïmplementeerd.
       \end{enumerate} \\
       \hline
       Dummy\_netd toevoegen aan pattern bestanden & 
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
         \item Dummy\_netd is toegevoegd als dependency in de pattern bestanden.
         \item Er is een nieuwe image gebouwd.
         \item Er is gecontroleerd of dummy\_netd is meegebouwd.
@@ -676,19 +678,19 @@ Ook heb ik de werkende images van vorige sprint gereleased op verschillende fora
       \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
       \hline
       Onderzoeken naar mogelijkheden om Waydroid op de telefoon te krijgen & 
-        \begin{enumerate}
+        \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
           \item Er is een concrete manier gevonden om Waydroid te kunnen installeren op de Fairphone.
         \end{enumerate}
       \\
       \hline
       Waydroid installeren op telefoon met sailfishOS:Chum & 
-        \begin{enumerate}
+        \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
           \item De Waydroid applicatie is geïnstalleerd op de Fairphone.
         \end{enumerate}
       \\
       \hline
       Onderzoek doen naar binder nodes & 
-        \begin{enumerate}
+        \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
           \item Er is duidelijk wat een binder node is en hoe deze samenwerken met Waydroid. 
           \item Er is een kort document dat een basisbegrip over binder nodes geeft voor de rest van het team. (Zie \ref{bijlage:bindernodes})
         \end{enumerate}
@@ -716,7 +718,7 @@ Ook heb ik de werkende images van vorige sprint gereleased op verschillende fora
       \\
     \hline 
     Nieuwe release post op XDA Forums maken & 
-    \begin{enumerate}
+    \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
       \item Er is een post gemaakt op de XDA Forums met daarin informatie over de nieuwste release.
       \item De post heeft een soortgelijke opmaak en structuur als \styledhref{https://xdaforums.com/t/lineageos-19-1-android-12l-signature-spoofing-ota-updates-for-s8-s8-note8.4370375/}{de LineageOS 19.1 Release}.
       \item De post is goedgekeurd door de opdrachtgever.
@@ -724,7 +726,7 @@ Ook heb ik de werkende images van vorige sprint gereleased op verschillende fora
     \\ 
     \hline 
     Nieuwe release post op SailfishOS Forums maken & 
-    \begin{enumerate}
+    \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
       \item Er is een post gemaakt op de SailfishOS Forums met daarin informatie over de nieuwste release.
       \item De post heeft een soortgelijke opmaak en structuur als \styledhref{https://xdaforums.com/t/lineageos-19-1-android-12l-signature-spoofing-ota-updates-for-s8-s8-note8.4370375/}{de LineageOS 19.1 Release}.
       \item De post is goedgekeurd door de opdrachtgever.
@@ -732,7 +734,7 @@ Ook heb ik de werkende images van vorige sprint gereleased op verschillende fora
     \\ 
     \hline 
     Nieuwe release post op Fairphone Forums maken & 
-    \begin{enumerate}
+    \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
       \item Er is een post gemaakt op de Fairphone Forums met daarin informatie over de nieuwste release.
       \item De post heeft een soortgelijke opmaak en structuur als \styledhref{https://xdaforums.com/t/lineageos-19-1-android-12l-signature-spoofing-ota-updates-for-s8-s8-note8.4370375/}{de LineageOS 19.1 Release}.
       \item De post is goedgekeurd door de opdrachtgever.
@@ -755,7 +757,7 @@ Ook heb ik de werkende images van vorige sprint gereleased op verschillende fora
   \hline
   \cellcolor[HTML]{99ccff} \textbf{Periode:} & 2023-11-27 t/m 2023-12-08 \\ 
   \hline
-  \cellcolor[HTML]{99ccff} \textbf{Aantal taken:} &  \\ 
+  \cellcolor[HTML]{99ccff} \textbf{Aantal taken:} & 5 \\ 
   \hline
   \cellcolor[HTML]{99ccff} \textbf{Totaal uren:} & 48 \\ 
   \hline
