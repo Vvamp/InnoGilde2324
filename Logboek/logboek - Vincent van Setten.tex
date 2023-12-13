@@ -5,7 +5,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{cite}
 \usepackage[dutch]{babel}
-\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=.8in]{geometry}
+\usepackage[a4paper, left=.8in, right=.8in, top=.8in, bottom=.6in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
@@ -28,7 +28,7 @@
 \usepackage{multicol}
 
 % Variables
-\newcommand{\latestVersion}{1}
+\newcommand{\latestVersion}{2}
 
 
 % Hyphenations
@@ -340,7 +340,7 @@ Dit wilden we graag verbeteren door de documentatie aan te passen.
       \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
       \hline
       Werkende SailfishOS Image produceren & 
-      \begin{enumerate}
+      \begin{enumerate}[topsep=0pt]
         \item Er is een image gebouwd.
         \item De telefoon start op met de image.
         \item De telefoon werkt naar behoren met de image.
@@ -745,6 +745,74 @@ Ook heb ik de werkende images van vorige sprint gereleased op verschillende fora
 \label{table:it5:new_releases}
 \end{table}
 \end{tcolorbox}
+
+
+
+\chapter{Sprint 6}
+\section{Algemene Informatie}
+\begin{table}[H]
+\begin{tabularx}{0.6\textwidth}{|X|X|}
+  \hline
+  \cellcolor[HTML]{99ccff} \textbf{Periode:} & 2023-11-27 t/m 2023-12-08 \\ 
+  \hline
+  \cellcolor[HTML]{99ccff} \textbf{Aantal taken:} &  \\ 
+  \hline
+  \cellcolor[HTML]{99ccff} \textbf{Totaal uren:} & 48 \\ 
+  \hline
+\end{tabularx}
+\caption{Informatie Tabel}
+\label{table:it6:general}
+\end{table}
+Sprint 6 was een vrij langzame sprint. We liepen constant tegen problemen aan met Waydroid, specifiek over de binder nodes.
+In de afgelopen sprint hebben we uitgezocht wat er gedaan moet worden om binder nodes werkend moeten krijgen, maar hiervan werkte uiteindelijk niks. 
+We bleven tegen dezelfde error aanlopen.
+Uiteindelijk hebben we een post gemaakt op de SailfishOS forums, waar we hulp vroegen aan de community. 
+Voor het einde van de sprint hadden we helaas nog geen reacties hier op.
+Ook hebben we hulp gevraagd aan onze opdrachtgever, die hier helaas ook geen verdere ideeën over had.
+Daarnaast heb ik in deze sprint mijn teamgenoten nog geholpen bij wat errors die zich opdeden in Docker, maar hier hadden we geen aparte taak voor op het scrumboard.
+
+\section{User Stories \& Taken}
+% Sprint 6 
+\begin{tcolorbox}[colback=white, coltitle=black, colframe=\userstorycolor, title=\textbf{User Story: }Als developer wil ik Waydroid als package kunnen bouwen\, zodat er android apps op de telefoon gerund kunnen worden.]
+  \begin{table}[H]
+      \centering
+    \begin{tabularx}{1\textwidth}{|X|X|}
+      \hline
+      \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
+      \hline 
+      Nieuwe kernel met binder nodes bouwen & Er is een nieuwe kernel gebouwd met daarin de binder nodes geconfigureerd. \\
+      \hline
+      Nieuwe kernel met binder nodes testen &  
+      \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
+        \item De gebouwde kernel is geflashed op de telefoon.
+        \item Er is geconstateerd of Waydroid de binder nodes ziet en kan gebruiken.
+      \end{enumerate}\\ 
+      \hline 
+      Vraag posten over probleem met binder nodes op Sailfish forums & \href{https://forum.sailfishos.org/t/the-fairphone-4-thread/17543/2?u=dimac4455}{Er is een post gemaakt} met de vraag over het binder node probleem. \\
+      \hline 
+      Vragen om hulp bij opdrachtgever & Er is gevraagd om ideeën voor verdere stappen aan de opdrachtgever. \\
+      \hline       
+    \end{tabularx}
+    \caption{User Story: Waydroid}
+  \label{table:it6:story_waydroid}
+  \end{table}
+  \end{tcolorbox}
+  
+\begin{tcolorbox}[colback=white, coltitle=black, colframe=\learningstorycolor, title=\textbf{Learning Story: }Als developer wil ik weten wat puddlejumper en vndjumper is\, zodat ik kan begrijpen hoe ik de binder nodes moet configureren.]
+  \begin{table}[H]
+      \centering
+    \begin{tabularx}{1\textwidth}{|X|X|}
+      \hline
+      \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
+      \hline 
+      Googlen naar puddlejumper en vndjumper & Er is online gezocht naar referenties naar puddlejumper en vndjumper. \\
+      \hline
+    \end{tabularx}
+    \caption{Learning Story: Puddlejumper}
+  \label{table:it6:story_puddlejumper}
+  \end{table}
+  \end{tcolorbox}
+  
 
 
 \chapter{Bijlagen}
