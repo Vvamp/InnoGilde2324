@@ -28,7 +28,7 @@
 \usepackage{multicol}
 
 % Variables
-\newcommand{\latestVersion}{2}
+\newcommand{\latestVersion}{3}
 
 
 % Hyphenations
@@ -190,6 +190,8 @@
     \begin{tabular}{|c|c|c|p{5cm}|}
         \hline
         \textbf{Versie} & \textbf{Datum} & \textbf{Veranderingen}  \\
+        \hline
+        3.0   & 2024-01-10 & Iteratie 7 toegevoegd \\
         \hline
         2.0   & 2023-12-13 & Iteratie 6 toegevoegd \\
         \hline
@@ -814,7 +816,118 @@ Daarnaast heb ik in deze sprint mijn teamgenoten nog geholpen bij wat errors die
   \label{table:it6:story_puddlejumper}
   \end{table}
   \end{tcolorbox}
+
   
+\chapter{Sprint 7}
+\section{Algemene Informatie}
+\begin{table}[H]
+\begin{tabularx}{0.6\textwidth}{|X|X|}
+  \hline
+  \cellcolor[HTML]{99ccff} \textbf{Periode:} & 2023-12-11 t/m 2023-12-22 \\ 
+  \hline
+  \cellcolor[HTML]{99ccff} \textbf{Aantal taken:} & 9 \\ 
+  \hline
+  \cellcolor[HTML]{99ccff} \textbf{Totaal uren:} & 48 \\ 
+  \hline
+\end{tabularx}
+\caption{Informatie Tabel}
+\label{table:it7:general}
+\end{table}
+Tijdens sprint 7 is er veel onderzoek gedaan naar Waydroid, als een laatste poging om Waydroid werkend te krijgen. Er is gekeken in IRC kanalen, er is gekeken naar andere community ports en er is gekeken naar antwoorden op forum posts. 
+Helaas werkte het niet. Richting het einde van de sprint besloten we te kijken naar overdraagbaarheid, omdat het einde van het project steeds dichterbij kwam.
+Dit hebben we besproken met de opdrachtgever. We besloten dat we beter moeite konden steken in de overdraagbaarheid, zodat dit voor een volgend team een stuk sneller zou gaan dan bij ons.
+Naast onderstaande taken heb ik ook geholpen met de Docker problemen, omdat dit ook belangrijk was voor de overdraagbaarheid.
+
+\section{User Stories \& Taken}
+% Sprint 7 
+\begin{tcolorbox}[colback=white, coltitle=black, colframe=\userstorycolor, title=\textbf{User Story: }Als developer wil ik Waydroid als package kunnen bouwen\, zodat er android apps op de telefoon gerund kunnen worden.]
+  \begin{table}[H]
+      \centering
+    \begin{tabularx}{1\textwidth}{|X|X|}
+      \hline
+      \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
+      \hline 
+      Binder node service maken & Er is een systemd service gemaakt voor de binder node initialisatie. \\ 
+      \hline 
+      Binder nodes symlinken naar /dev & De binder nodes zijn gesymlinked naar /dev. \\
+      \hline 
+      Waydroid initialisatie testen na het toepassen van potentiële binder node oplossingen & De Waydroid initialisatie is getest na het toepassen van de potentiële binder node oplossingen. \\
+      \hline 
+    \end{tabularx}
+    \caption{User Story: Waydroid}
+  \label{table:it7:story_waydroid}
+  \end{table}
+  \end{tcolorbox}
+
+  \begin{tcolorbox}[colback=white, coltitle=black, colframe=\learningstorycolor, title=\textbf{Learning Story: }Als developer wil ik weten wat voor problemen zouden kunnen zorgen dat Waydroid de binder nodes niet kan vinden\, zodat ik kan verder kan nadenken over potentiële oplossingen.]
+    \begin{table}[H]
+        \centering
+      \begin{tabularx}{1\textwidth}{|X|X|}
+        \hline
+        \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
+        \hline 
+        Kijken naar Github pagina's van andere ports hoe zij Waydroid hebben geïmplementeerd & Er is gekeken naar de commits en van de Github pagina's van andere community ports met Waydroid support. \\
+        \hline
+        Verbinden met IRC kanaal van de Sailfish porters & Er is een IRC client geïnstalleerd en verbonden met het IRC kanaal van de Sailfish porters. \\
+        \hline
+        Door de IRC logs kijken naar mentions van Waydroid & Er is door de IRC logs gekeken naar mentions van Waydroid. \\
+        \hline
+        Door de IRC logs kijken naar mentions van Binder nodes & Er is door de IRC logs gekeken naar mentions van Binder nodes. \\
+        \hline
+      \end{tabularx}
+      \caption{Learning Story: Waydroid ideeën}
+    \label{table:it7:story_waydroid_ideas}
+    \end{table}
+    \end{tcolorbox}
+
+  \begin{tcolorbox}[colback=white, coltitle=black, colframe=\userstorycolor, title=\textbf{User Story: }Als developer wil ik dat er een Fairphone geflashed is met de recenste build\, zodat er dingen getest kunnen worden op de telefoon.]
+    \begin{table}[H]
+        \centering
+      \begin{tabularx}{1\textwidth}{|X|X|}
+        \hline
+        \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
+        \hline
+        Fairphones flashen met de meest recente build. & De Fairphones zijn geflashed en werken naar behoren. \\
+        \hline
+      \end{tabularx}
+      \caption{User Story: Fairphone flashen}
+    \label{table:it7:story_flashing}
+    \end{table}
+    \end{tcolorbox}
+
+  \begin{tcolorbox}[colback=white, coltitle=black, colframe=\userstorycolor, title=\textbf{User Story: }Als opdrachtgever wil ik dat het project gemakkelijk overgedragen kan worden\, zodat een volgend team snel aan de slag kan.]
+    \begin{table}[H]
+        \centering
+      \begin{tabularx}{1\textwidth}{|X|X|}
+        \hline
+        \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
+        \hline
+        Bespreken met de opdrachtgever wat de eisen zijn voor een overdrachtsdocument. & De eisen van het overdrachtsdocument zijn besproken. \\
+        \hline
+      \end{tabularx}
+      \caption{User Story: Project Overdracht}
+    \label{table:it7:story_transfer}
+    \end{table}
+    \end{tcolorbox}
+  
+    \begin{tcolorbox}[colback=white, coltitle=black, colframe=\userstorycolor, title=\textbf{User Story: }Als developer wil ik het stuk "Sourcing and Building relevant bits of your chosen Android base" verwerken in de Docker container\, om een stap dichter bij een makkelijkere werkomgeving te realiseren.]
+    \begin{table}[H]
+        \centering
+      \begin{tabularx}{1\textwidth}{|X|X|}
+        \hline
+        \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
+        \hline
+        Android Dynamic Partitions Verwerken in Docker & Het onderdeel android dynamic partitions vanuit het build omgeving script moet worden verwerkt in docker. \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
+          \item De gebouwde kernel is geflashed op de telefoon.
+          \item Er is geconstateerd of Waydroid de binder nodes ziet en kan gebruiken.
+        \end{enumerate}\\ 
+        \hline
+      \end{tabularx}
+      \caption{User Story: Android Base Docker}
+    \label{table:it7:story_docker}
+    \end{table}
+    \end{tcolorbox}
+
 
 
 \chapter{Bijlagen}
