@@ -28,7 +28,7 @@
 \usepackage{multicol}
 
 % Variables
-\newcommand{\latestVersion}{3}
+\newcommand{\latestVersion}{4}
 
 
 % Hyphenations
@@ -190,6 +190,8 @@
     \begin{tabular}{|c|c|c|p{5cm}|}
         \hline
         \textbf{Versie} & \textbf{Datum} & \textbf{Veranderingen}  \\
+        \hline
+        4.0   & 2024-01-17 & Iteratie 8 toegevoegd \\
         \hline
         3.0   & 2024-01-10 & Iteratie 7 toegevoegd \\
         \hline
@@ -929,6 +931,81 @@ Naast onderstaande taken heb ik ook geholpen met de Docker problemen, omdat dit 
     \end{tcolorbox}
 
 
+  
+\chapter{Sprint 8}
+\section{Algemene Informatie}
+\begin{table}[H]
+\begin{tabularx}{0.6\textwidth}{|X|X|}
+  \hline
+  \cellcolor[HTML]{99ccff} \textbf{Periode:} & 2024-01-08 t/m 2024-01-19 \\ 
+  \hline
+  \cellcolor[HTML]{99ccff} \textbf{Aantal taken:} & 9 \\ 
+  \hline
+  \cellcolor[HTML]{99ccff} \textbf{Totaal uren:} & 48 \\ 
+  \hline
+\end{tabularx}
+\caption{Informatie Tabel}
+\label{table:it8:general}
+\end{table}
+Deze sprint stond vooral in het teken van documentatie. We wilden er zeker van zijn dat een volgend team snel aan de slag kon met het project. 
+De eerste week zijn we nog bezig geweest met Podman. We hebben geprobeerd om de problemen met Podman op te lossen, maar dit is helaas niet volledig gelukt.
+Hiervoor hebben we tijdig onze opdrachtgever gecontacteerd, zodat deze niet voor verrassingen zou komen te staan tijdens de laatste Review. 
+De tweede week hebben we ons vooral gefocust op het overdrachtsdocument.
+Het overdrachtsdocument staat in de bijlagen als \nameref{bijlage:overdrachtdocument}.
+
+\section{User Stories \& Taken}
+
+\begin{tcolorbox}[colback=white, coltitle=black, colframe=\userstorycolor, title=\textbf{User Story: }Als opdrachtgever wil ik dat het project gemakkelijk overgedragen kan worden\, zodat een volgend team snel aan de slag kan.]
+  \begin{table}[H]
+      \centering
+    \begin{tabularx}{1\textwidth}{|X|X|}
+      \hline
+      \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
+      \hline
+      \LaTeX \space Opzet overdracht document maken in overleaf. & Er is een \LaTeX \space opzet gemaakt in Overleaf en een voorpagina. \\
+      \hline 
+      Build server opschonen & Onnodige bestanden en folders zijn verwijderd van de build server. \\ 
+      \hline 
+      Overdracht document: project components overview schrijven & \begin{itemize} 
+      \item 'Completed' sectie schrijven 
+      \item 'Updating sailfishOS schrijven  
+      \item 'Functionalities' herschrijven 
+      \end{itemize}  \\
+      \hline
+      Overdracht document: Docker/podman probleem beschrijven & Het probleem en potentiële oplossingen van docker zijn beschreven. \\ 
+      \hline
+      Overdracht document: Spelling en grammatica controleren & De spelling en grammatica zijn gecontroleerd. \\
+      \hline
+
+    \end{tabularx}
+    \caption{User Story: Project Overdracht}
+  \label{table:it8:story_transfer}
+  \end{table}
+  \end{tcolorbox}
+
+  \begin{tcolorbox}[colback=white, coltitle=black, colframe=\userstorycolor, title=\textbf{User Story: }Als developer wil ik het stuk "Sourcing and Building relevant bits of your chosen Android base" verwerken in de Docker container\, om een stap dichter bij een makkelijkere werkomgeving te realiseren.]
+    \begin{table}[H]
+        \centering
+      \begin{tabularx}{1\textwidth}{|X|X|}
+        \hline
+        \cellcolor[HTML]{ffcc99} \textbf{Taak} & \cellcolor[HTML]{ffcc99} \textbf{Acceptatie Criteria} \\ 
+        \hline
+        Android Dynamic Partitions Verwerken in Docker & Het onderdeel android dynamic partitions vanuit het build omgeving script moet worden verwerkt in docker. \begin{enumerate}[leftmargin=.4cm, topsep=0cm, itemsep=.2cm]
+          \item De gebouwde kernel is geflashed op de telefoon.
+          \item Er is geconstateerd of Waydroid de binder nodes ziet en kan gebruiken.
+        \end{enumerate}\\ 
+        \hline
+        Docker files herschrijven om niet de root's home folder te gebruiken, maar een andere folder & De docker files zijn herschreven met een andere working directory dan de root home folder. \\ 
+        \hline 
+        Repo tool probleem onderzoeken & Er is onderzocht waarom repo tool een error raised in de docker container. \\
+        \hline 
+        Curl problemen oplossen in docker bestanden & De curl wordt succesvol uitgevoerd in de docker files zonder errors \\ 
+        \hline 
+      \end{tabularx}
+      \caption{User Story: Android Base Docker}
+    \label{table:it8:story_docker}
+    \end{table}
+    \end{tcolorbox}
 
 \chapter{Bijlagen}
 \section{Bijlage A - Binder Nodes}
@@ -947,6 +1024,15 @@ Naast onderstaande taken heb ik ook geholpen met de Docker problemen, omdat dit 
   \includegraphics[page=1,scale=0.7]{Appendices/userguide.pdf}}
 \end{minipage}
 \includepdf[pages={2-5},scale=0.7,frame,pagecommand={}]{Appendices/userguide.pdf}
+
+\section{Bijlage C - Overdrachtsdocument}
+\label{bijlage:overdrachtdocument}
+\begin{minipage}{\textwidth}
+  \centering
+  \fbox{
+  \includegraphics[page=1,scale=0.7]{Appendices/Overdrachtsdocument.pdf}}
+\end{minipage}
+\includepdf[pages={2-},scale=0.7,frame,pagecommand={}]{Appendices/Overdrachtsdocument.pdf}
 
 
 \end{document}
